@@ -1,0 +1,168 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Set the background image for the whole page */
+body {
+    background-image: url('https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png'); /* Replace with your image path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; 
+}
+
+/* Create a semi-transparent background overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: -1; /* Place it behind other content */
+}
+
+/* Center the login container vertically and horizontally */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+
+/* Style the login box */
+.login-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center; /* Center its content horizontally */
+}
+
+.google-login {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px; 
+    margin-left:3vw;
+    display: inline-block; /* Change from flex to inline-block */
+    cursor: pointer;
+}
+
+
+
+.google-login img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Style form elements */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Style the "or" divider */
+.or-divider {
+    margin: 20px 0;
+    position: relative;
+}
+
+.or-text {
+    background-color: #fff;
+    padding: 0 10px;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #999;
+}
+
+/* Style the Google login button */
+.google-login {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.google-login img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Style the "Forgot Password?" link */
+.forgot-password {
+    margin-top: 10px;
+}
+
+.forgot-password a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+.forgot-password a:hover{
+    font-weight:bold;
+}
+
+/* Style the "New here? Sign-Up Now" link */
+.sign-up-link {
+    margin-top: 20px;
+}
+
+.sign-up-link a {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sign-up-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+    .login-box {
+        padding: 10px;
+    }
+}

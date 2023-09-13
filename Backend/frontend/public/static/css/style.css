@@ -1,0 +1,209 @@
+
+body {
+    background-image: url('background-image.jpg'); /* Replace 'background-image.jpg' with your image file path */
+    background-repeat: no-repeat;
+    background-size: cover; /* Cover the entire viewport */
+    background-attachment: fixed; /* Fixed background image */
+    background-position: center center;
+    font-family: Arial, sans-serif; /* Adjust font-family as needed */
+    color: #333; /* Adjust text color for readability */
+}
+
+/* Apply basic styling to the navigation bar */
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px; /* Add margin to separate Admin Control */
+}
+
+nav ul li {
+    margin-right: 20px;
+    position: relative; 
+}
+
+.admin-control {
+    margin-right: 0;
+    margin-left: auto; /* Push Admin Control to the right */
+}
+
+nav ul li:first-child {
+    margin-left: 10px; /* To put Home a bit left */
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    
+}
+
+/* Style the hero section */
+.hero {
+    text-align: center;
+    padding: 100px 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: white;
+    color: #333;
+}
+
+/* Style the footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Style the carousel container */
+.carousel-container {
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+}
+
+/* Style the carousel slides */
+.carousel-slide {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+/* Media query for screens smaller than 768px (e.g., mobile devices) */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .carousel-container {
+        max-height: 300px;
+    }
+
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* Style the company info section */
+.company-info {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.company-text {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.company-photos {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.company-photos img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Style the quotation */
+blockquote {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #333;
+    font-style: italic;
+}
+
+
+
+/* Highlight navbar links on hover */
+nav a:hover {
+    color: #EBB02C; /* Change to your desired hover color */
+}
+
+/* Highlight the active Home tab */
+nav a.active {
+    color: #ff6600; /* Change to your desired active color */
+}
+
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | E-Learning</title>
+    
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        .alert {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+          }
+          .alert .close {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+                    transform: translateY(-50%);
+            color: #F70000;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.5rem;
+          }
+          
+          .alert.primary {
+            color: #004085;
+            background-color: #cce5ff;
+            border-color: #b8daff;
+          }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="/course">Courses</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign-Up</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li class="admin-control"><a href="/admin">Admin Control</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% if messages %} 
+    {% for message in messages %}
+        <div class="alert primary">
+        <strong>{{message}}</strong>
+        <span class="close" onclick="this.parentElement.style.display='none'">×</span>
+      </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <img class="carousel-slide" src="https://source.unsplash.com/1600x200?learning,education" alt="Image 1">
+            <img class="carousel-slide" src="https://source.unsplash.com/1600x200?student,school" alt="Image 2">
+            <img class="carousel-slide" src="https://source.unsplash.com/1600x200?india,school" alt="Image 3">
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1>Welcome to E-Learning</h1>
+        <p>Learn at your own pace, anytime, anywhere.</p>
+        <a href="#" class="cta-button">Get Started</a>
+    </section>
+
+
+<section class="company-info">
+    <div class="company-text">
+        <h2>About Our Company</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo eget est non viverra. Nullam varius nisl vel turpis vehicula, at posuere est tristique. Sed eu mauris nec lorem aliquam laoreet vel id lorem.</p>
+        <p>Proin euismod bibendum tellus, in laoreet odio gravida eu. Sed sit amet dignissim ante. Fusce et sapien ac libero venenatis ultrices non eget dui.</p>
+        <blockquote>
+            <p>"Education is the most powerful weapon which you can use to change the world." - Nelson Mandela</p>
+        </blockquote>
+    </div>
+    <div class="company-photos">
+        <img src="https://source.unsplash.com/300x300?education" alt="Company Photo 1">
+        <img src="https://source.unsplash.com/300x300?books" alt="Company Photo 2">
+    </div>
+</section>
+
+
+
+
+    <!-- Other content and sections can be added here -->
+
+    <footer>
+        <p>&copy; 2023 E-Learning. All rights reserved.</p>
+    </footer>
+
+    
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
