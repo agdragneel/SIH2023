@@ -11,9 +11,9 @@ class Reg(models.Model):
     email=models.EmailField()
     password = models.CharField(max_length=20)
     
-    phn= PhoneNumberField(blank=True)
+    phn= models.CharField(max_length=10)
     guard_name=models.CharField(max_length=100)
-    guard_phn= PhoneNumberField(blank=True)
+    guard_phn= models.CharField(max_length=10)
     guardianrelation=models.CharField(max_length=100)
     standard=models.CharField(max_length=20)
     edu_deets=models.TextField()

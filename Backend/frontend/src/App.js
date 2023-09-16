@@ -1,49 +1,44 @@
-// src/App.js
-import React, { useState } from 'react';
-import ClassCard from './components/ClassCard';
-import CourseList from './components/CourseList';
-import './App.css';
+import axios from "axios";
+import React, { useState, useEffect } from 'react'
 
-const classes = ['LKG', 'I', 'II', 'III', 'IV', 'V'];
 
-function App() {  
-  const [selectedClass, setSelectedClass] = useState(null);
 
-  return (
-    <div className="App">
-      <header>
-      <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/course">Courses</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/signup">Sign-Up</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li class="admin-control"><a href="/admin">Admin Control</a></li>
-            </ul>
-        </nav>
-      </header>
-      <main>
-        {!selectedClass ? (
-          <div className="class-selection">
-            {classes.map((className) => (
-              <ClassCard
-                key={className}
-                className={className}
-                onSelect={setSelectedClass}
-              />
-            ))}
+function App() {
+
+  const [details, setDetails] = useState([])
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Axios GET request to fetch data from the API
+    axios.get('http://127.0.0.1:8000/rest')
+      .then((res) => {
+        setDetails(res.data);
+        setIsLoading(false); // Data is loaded
+      })
+      .catch((err) => {
+        console.error('Error fetching data:', err);
+        setIsLoading(false); // Loading failed
+      });
+  }, []);
+
+
+return (
+  <div className="app">
+    <h1>Django Data</h1>
+    <hr />
+    {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+        {details.map((output, id) => (
+          <div key={id}>
+            <h2>Welcome {output.fname},your username is:{output.username}</h2>
           </div>
-        ) : (
-          <CourseList subjects={['Math', 'Science', 'English', 'History']} />
-        )}
-      </main>
-
-      <footer>
-        <p>&copy; 2023 E-Learning. All rights reserved.</p>
-    </footer>
-    </div>
-  );
+        ))}
+      </>
+      )}
+  </div>
+);
 }
 
 export default App;
