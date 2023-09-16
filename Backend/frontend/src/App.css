@@ -29,6 +29,11 @@ nav ul li {
 nav ul li:first-child {
   margin-left: 10px; /* To put Home a bit left */
 }
+.userdisp{
+  
+    margin-right: 0;
+    margin-left: auto; /* Push username to the right */
+  }
 
 nav a {
   text-decoration: none;
@@ -36,6 +41,7 @@ nav a {
   font-weight: bold;
   
 }
+
 
 nav a:hover {
   color: #EBB02C; /* Change to your desired hover color */
