@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     // Axios GET request to fetch data from the API
-    axios.get('http://127.0.0.1:8000/rest')
+    axios.get('http://127.0.0.1:8000/currentuser')
       .then((res) => {
         setDetails(res.data);
         setIsLoading(false); // Data is loaded
@@ -30,11 +30,7 @@ return (
         <p>Loading...</p>
       ) : (
         <>
-        {details.map((output, id) => (
-          <div key={id}>
-            <h2>Welcome {output.fname},your username is:{output.username}</h2>
-          </div>
-        ))}
+        <p>Currently Logged in User:</p>{details.username}
       </>
       )}
   </div>

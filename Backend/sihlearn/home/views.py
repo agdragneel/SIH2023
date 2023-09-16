@@ -7,8 +7,9 @@ from django.contrib.auth import get_user_model
 from home.models import Reg
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from home.serializers import RegSerializer
+from home.serializers import *
 
+User=get_user_model()
 
 class RegView(APIView):
     def get(self,request):
@@ -22,7 +23,20 @@ class RegView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
- 
+
+
+class LoggedInUserView(APIView):
+    def get(self, request):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data)
+
+    def post(self,request):
+        serializer=UserSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
+
+        
 def home(request):
     return render(request,'index.html')
 

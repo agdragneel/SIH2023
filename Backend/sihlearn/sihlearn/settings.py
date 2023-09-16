@@ -30,12 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000'
-]
 
-CORS_ALLOWED_CREDENTIAL = True
 
 
 # Application definition
@@ -66,8 +61,14 @@ MIDDLEWARE = [
 ]
 REST_FRAMEWORK={'DEFAULT_PERMISSION_CLASSES':['rest_framework.permissions.AllowAny']}
 
-CORS_ORIGIN_ALLOW_ALL = True
- 
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    'http://127.0.0.1:3000'
+]
+
+CORS_ALLOWED_CREDENTIAL = True
 
 ROOT_URLCONF = "sihlearn.urls"
 
