@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import NavAnon from "./components/NavAnon";
 import NavStu from "./components/NavStu";
-import Home from "./components/Home"
-import Courses from "./components/Courses"
+import Home from "./components/Home";
+import Courses from "./components/Courses";
 import Faq from "./components/Faq";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
@@ -27,19 +27,17 @@ function App() {
   }, []);
 
   return (
-    
     <>
-    <Router>
-      <div className="app">{details.id ? <NavStu /> : <NavAnon />}</div>
+      <Router>
+        <div className="app">{details.id ? <NavStu /> : <NavAnon />}</div>
 
-      <Routes>
+        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/course" element={<Courses />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/check" element={<Home />} />
-      </Routes>
-
-    </Router>
+        </Routes>
+      </Router>
     </>
   );
 }
