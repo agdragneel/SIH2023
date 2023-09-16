@@ -6,7 +6,7 @@ import './App.css';
 
 const classes = ['LKG', 'I', 'II', 'III', 'IV', 'V'];
 
-function App() {
+function App() {  
   const [selectedClass, setSelectedClass] = useState(null);
 
   return (

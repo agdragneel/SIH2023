@@ -6,8 +6,9 @@ admin.site.site_title = "UMSRA Admin Portal"
 admin.site.index_title = "Welcome to UMSRA Researcher Portal"
 urlpatterns = [
     path("",views.home,name='home'),
-    path("login",views.login,name='login'),
+    path("login",views.login_view,name='login_view'),
     path("signup",views.signup,name='signup'),
     path("faq",views.faq,name='faq'),
     path("course",views.courses,name="course"),
+    path("logout",views.logout_view,name="logout")
 ]

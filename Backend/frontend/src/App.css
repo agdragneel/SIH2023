@@ -9,30 +9,43 @@ body {
 /* Header Styles */
 header {
   background-color: #333;
+  color: white;
   padding: 10px 0;
 }
 
 nav ul {
   list-style: none;
+  text-align: center;
   display: flex;
   justify-content: center;
-  padding: 0;
+  align-items: center;
+  margin-right: 20px; /* Add margin to separate Admin Control */
 }
 
-nav li {
-  margin: 0 20px;
+nav ul li {
+  margin-right: 20px;
+  position: relative; 
+}
+
+.admin-control {
+  margin-right: 0;
+  margin-left: auto; /* Push Admin Control to the right */
+}
+
+nav ul li:first-child {
+  margin-left: 10px; /* To put Home a bit left */
 }
 
 nav a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  font-size: 18px;
-  transition: color 0.3s;
+  
 }
 
-nav a:hover {
-  color: #0078d4; /* Link hover color (blue) */
+nav a:hover
+{
+  color:#EBB02C;
 }
 
 /* Main Content Styles */
@@ -174,3 +187,5 @@ footer {
   text-align: center;
   padding: 10px 0;
 }
+
+/* FAQ Page */

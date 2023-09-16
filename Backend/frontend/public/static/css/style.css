@@ -195,10 +195,7 @@ nav a:hover {
     color: #EBB02C; /* Change to your desired hover color */
 }
 
-/* Highlight the active Home tab */
-nav a.active {
-    color: #ff6600; /* Change to your desired active color */
-}
+
 
 
 

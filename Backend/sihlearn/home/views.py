@@ -1,22 +1,25 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,logout,login
 from django.contrib import messages
 from django.contrib.auth.models import User
 from home.models import Reg
 
 
+
 def home(request):
     return render(request,'home.html')
 
-def login(request):
+def login_view(request):
     if request.method=="POST":
         username=request.POST.get('username')
         password=request.POST.get('password')
         user=authenticate(username=username,password=password)
         if user is not None:
             #Login done 
+            login(request,user)
             messages.success(request, "Logged in successfully.")
+            print("Logging in",request.user)
             return render(request,'home.html')
         else:
             #Login Not Done
@@ -52,7 +55,17 @@ def signup(request):
 # Create your views here.
 
 def faq(request):
+    print(request.user)
     return render(request,'faq.html')
+    
 
 def courses(request):
-    return render(request,'index.html')
+    if request.user.is_authenticated:
+        return render(request,'index.html')
+    else:
+        return redirect('/login')
+        
+
+def logout_view(request):
+    logout(request)
+    return render(request,'home.html')
