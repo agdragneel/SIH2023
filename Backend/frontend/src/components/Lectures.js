@@ -14,12 +14,15 @@ import axios from "axios";
 
 function Lectures(props) {
   const [videos, setVideos] = useState([]);
-
+  const vidPrefix=props.class.toLowerCase()+'-'+props.course.toLowerCase();
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/videoapi")
-      .then((response) => {
-        setVideos(response.data);
+      .then(response => {
+        // Filter videos based on the condition
+        // {props.class}.toLowerCase-{props.course}.toLowerCase
+        const filteredVideos = response.data.filter(video => video.cap.startsWith(vidPrefix));
+        setVideos(filteredVideos);
       })
       .catch((error) => {
         console.error("Error fetching video data:", error);
@@ -31,15 +34,19 @@ function Lectures(props) {
       <h1>Video List</h1>
       <ul>
         {videos.map((video) => (
+
           <li key={video.id}>
             <ReactPlayer
               url={video.vid_link} // URL of the video file
               controls={true} // Show video controls
-              width="640px" // Set video width
-              height="360px" // Set video height
+              width="500px" // Set video width
+              height="300px" // Set video height
             />
+            <h2>{video.cap}</h2>
           </li>
         ))}
+
+        
       </ul>
     </div>
   );
