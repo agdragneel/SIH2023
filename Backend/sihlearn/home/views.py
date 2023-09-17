@@ -49,7 +49,7 @@ class StudMatView(APIView):
 class RegView(APIView):
     def get(self,request):
         output = [{"fname": output.fname,"mname": output.mname,"lname": output.lname,"username": output.username,"gender": output.gender,
-        "date": output.date,"email": output.email,"password": output.password,"phn": output.phn,"guard_name": output.guard_name,"guard_phn": output.guard_phn,"guardianrelation": output.guardianrelation,"standard": output.standard,"edu_deets": output.edu_deets}
+        "date": output.date,"email": output.email,"password": output.password,"phn": output.phn,"guard_name": output.guard_name,"guard_phn": output.guard_phn,"guardianrelation": output.guardianrelation,"standard": output.standard,"edu_deets": output.edu_deets,"position": output.position}
         for output in Reg.objects.all()]
         return Response(output)
 

@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 
 export default function NavStu() {
   const [details, setDetails] = useState([]);
+  
+  
   useEffect(() => {
     // Axios GET request to fetch data from the API
     axios
@@ -14,6 +16,7 @@ export default function NavStu() {
         console.error("Error fetching data:", err);
       });
   }, []);
+
 
   return (
     <div>
@@ -34,7 +37,7 @@ export default function NavStu() {
               <div class="dropdown-content">
                 <a href="#">Your Courses</a>
                 <a href="#">Certificates</a>
-                <a href="#">Profile</a>
+                <a href="/profile">Profile</a>
                 <a href="/logout">Logout</a>
               </div>
             </li>

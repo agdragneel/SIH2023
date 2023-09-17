@@ -17,6 +17,7 @@ class Reg(models.Model):
     guardianrelation=models.CharField(max_length=100)
     standard=models.CharField(max_length=20)
     edu_deets=models.TextField()
+    position=models.CharField(max_length=100,default="student")
 
     def __str__(self):
         return ((self.username)+(self.lname))

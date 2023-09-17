@@ -1,41 +1,58 @@
-//App.js
-import './App.css'
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import NavAnon from "./components/NavAnon";
-import NavStu from "./components/NavStu";
-import Home from "./components/Home";
-import Courses from "./components/Courses";
-import Faq from "./components/Faq";
-import Footer from "./components/Footer"
+import './App.css';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import Home from './components/Home';
+import Courses from './components/Courses';
+import Faq from './components/Faq';
+import Footer from './components/Footer';
 import Profile from './components/Profile';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import CourseMaterial from "./components/CourseMaterials";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CourseMaterial from './components/CourseMaterials';
+import NavTeacher from './components/NavTeacher';
+import NavStu from './components/NavStu';
+import NavAnon from './components/NavAnon';
 
 function App() {
   const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [regDetails, setRegDetails] = useState([]);
 
   useEffect(() => {
-    // Axios GET request to fetch data from the API
+    // Axios GET request to fetch data from the currentuser API
     axios
-      .get("http://127.0.0.1:8000/currentuser")
+      .get('http://127.0.0.1:8000/currentuser')
       .then((res) => {
         setDetails(res.data);
         setIsLoading(false); // Data is loaded
       })
       .catch((err) => {
-        console.error("Error fetching data:", err);
+        console.error('Error fetching data:', err);
         setIsLoading(false); // Loading failed
       });
   }, []);
 
+  useEffect(() => {
+    // Axios GET request to fetch data from the rest API
+    axios
+      .get('http://127.0.0.1:8000/rest')
+      .then((res) => {
+        setRegDetails(res.data);
+      })
+      .catch((err) => {
+        console.error('Error fetching data:', err);
+      });
+  }, []);
+
+  // Find the user's details based on the current username
+  const currentUserDetails = regDetails.find((user) => user.username === details.username);
+  const userRole = currentUserDetails ? currentUserDetails.position : 'anon';
+
   return (
     <>
       <Router>
-        <div className="app">{details.id ? <NavStu /> : <NavAnon />}</div>
-
-        <Routes>
+      {userRole === 'teacher' ? <NavTeacher /> : userRole === 'student' ? <NavStu /> : <NavAnon />}
+        <div className="app">
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/course" element={<Courses />} />
           <Route path="/faq" element={<Faq />} />
@@ -62,10 +79,11 @@ function App() {
           <Route path="/v-social-studies-course" element={<CourseMaterial course="Social Studies" class="V"/>}></Route>
           <Route path="/v-history-course" element={<CourseMaterial course="History" class="V"/>}></Route>
           <Route path="/profile" element={<Profile/>}></Route>
-          
-        </Routes>
+          </Routes>
+        </div>
 
-        <Footer/>
+        <Footer />
+        
       </Router>
     </>
   );
