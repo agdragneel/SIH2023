@@ -239,7 +239,7 @@ footer {
 }
 
 .class-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.10);
 }
 
 /* Update CSS for smooth expansion and less opaque background */
@@ -314,7 +314,7 @@ footer {
 
 
 .view-button {
-  background-color: rgb(168, 168, 174);
+  background-color: rgb(65, 65, 66);
   color: white;
   border: none;
   border-radius: 5px;

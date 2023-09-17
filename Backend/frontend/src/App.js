@@ -5,6 +5,7 @@ import NavStu from "./components/NavStu";
 import Home from "./components/Home";
 import Courses from "./components/Courses";
 import Faq from "./components/Faq";
+import Footer from "./components/Footer"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 
@@ -37,6 +38,8 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/check" element={<Home />} />
         </Routes>
+
+        <Footer/>
       </Router>
     </>
   );

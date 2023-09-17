@@ -1,8 +1,8 @@
-// src/components/CourseList.js
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 
-function CourseList({ subjects }) {
+function CourseList({ subjects, descriptions }) {
   const [expandedCourses, setExpandedCourses] = useState([]);
+  const [selectedCourseUrl, setSelectedCourseUrl] = useState(null); // Add this state variable
 
   const toggleCourse = (subject) => {
     if (expandedCourses.includes(subject)) {
@@ -11,6 +11,51 @@ function CourseList({ subjects }) {
       setExpandedCourses([...expandedCourses, subject]);
     }
   };
+
+  // Function to handle the "View Course" button click
+  const handleViewCourse = (subject) => {
+    // Determine the URL based on the selected class and course
+    const selectedClass = 'LKG'; // Replace with the actual selected class (you can store this in state)
+    const courseUrl = determineCourseUrl(selectedClass, subject); // Implement this function
+
+    // Set the selectedCourseUrl state to trigger the redirect
+    setSelectedCourseUrl(courseUrl);
+  };
+
+  // Implement a function to determine the URL based on the selected class and course
+  const determineCourseUrl = (selectedClass, subject) => {
+    // Add your logic to determine the URL for the given class and course
+    // You can use a switch statement, if-else conditions, or any other method to map classes and subjects to URLs
+    // Return the appropriate URL based on your logic
+
+    // Example:
+    switch (selectedClass) {
+      case 'LKG':
+        switch (subject) {
+          case 'Math':
+            return '/lkg-math-course';
+          case 'Science':
+            return '/lkg-science-course';
+          case 'English':
+            return '/lkg-english-course';
+          default:
+            return '/404'; // Default or error page
+        }
+      case 'I':
+        // Implement URLs for Class I subjects
+        break;
+      // Handle other classes
+      default:
+        return '/404'; // Default or error page
+    }
+  };
+
+  // Handle the redirect when the selectedCourseUrl changes
+  useEffect(() => {
+    if (selectedCourseUrl) {
+      window.location.href = selectedCourseUrl; // Redirect to the selected URL
+    }
+  }, [selectedCourseUrl]);
 
   return (
     <div className="course-list">
@@ -23,17 +68,10 @@ function CourseList({ subjects }) {
             </button>
           </div>
           <div className={`course-details ${expandedCourses.includes(subject) ? 'expanded' : ''}`}>
-            <p>Course details for {subject} go here...</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet excepturi assumenda dolor pariatur vitae nisi
-              delectus laboriosam cumque, dolorum voluptatem saepe officia tempora reprehenderit. Commodi aut sint rem modi
-              placeat explicabo officiis quaerat natus! Rerum ad placeat laudantium delectus neque voluptatum incidunt eius
-              cupiditate omnis dignissimos enim harum et fugiat eum velit minus aliquam cumque, ipsa nostrum est tempora quo
-              dicta maiores molestiae. Officia voluptatem enim sed aspernatur, ea modi eum, recusandae laboriosam dolore dolores
-              similique quae? Dolores maxime obcaecati beatae, ex delectus magnam ipsa voluptatem. Alias, minus numquam facere
-              maiores, ipsam expedita sequi in doloribus, laboriosam omnis perferendis mollitia.
-            </p>
-            <button className="view-button">View Course</button>
+            <p>{descriptions[subject]}</p>
+            <button className="view-button" onClick={() => handleViewCourse(subject)}>
+              View Course
+            </button>
           </div>
         </div>
       ))}
