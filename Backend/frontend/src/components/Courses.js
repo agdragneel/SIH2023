@@ -14,14 +14,12 @@ const classes = [
   },
   {
     className: 'I',
-    subjects: ['Math', 'Science', 'English'],
+    subjects: ['Math', 'Science', 'Social Studies'],
     descriptions: {
       Math: 'Math description for Class I',
       Science: 'Science description for Class I',
-      English: 'English description for Class I',
+      'Social Studies': 'Social Studies description for Class I',
     },
-  
-
   },
   {
     className: 'II',
@@ -31,46 +29,37 @@ const classes = [
       Science: 'Science description for Class II',
       'Social Studies': 'Social Studies description for Class II',
     },
-  
-
   },
   {
     className: 'III',
-    subjects: ['Math', 'Science', 'Social Studies','History'],
+    subjects: ['Math', 'Science', 'Social Studies', 'History'],
     descriptions: {
       Math: 'Math description for Class III',
       Science: 'Science description for Class III',
       'Social Studies': 'Social Studies description for Class III',
-      History: 'History Description for Class III'
+      History: 'History description for Class III',
     },
-  
-
   },
   {
     className: 'IV',
-    subjects: ['Math', 'Science', 'Social Studies','History'],
+    subjects: ['Math', 'Science', 'Social Studies', 'History'],
     descriptions: {
       Math: 'Math description for Class IV',
       Science: 'Science description for Class IV',
       'Social Studies': 'Social Studies description for Class IV',
-      History: 'History Description for Class IV'
+      History: 'History description for Class IV',
     },
-  
-
   },
   {
     className: 'V',
-    subjects: ['Math', 'Science', 'Social Studies','History'],
+    subjects: ['Math', 'Science', 'Social Studies', 'History'],
     descriptions: {
       Math: 'Math description for Class V',
       Science: 'Science description for Class V',
       'Social Studies': 'Social Studies description for Class V',
-      History: 'History Description for Class V'
+      History: 'History description for Class V',
     },
-  
-
   },
-  // Add more class data as needed
 ];
 
 export default function Courses() {
@@ -85,15 +74,17 @@ export default function Courses() {
               <ClassCard
                 key={classData.className}
                 classData={classData}
-                onSelect={setSelectedClass}
+                onSelect={(className, subject) => {
+                  setSelectedClass(className);
+                }}
               />
             ))}
           </div>
         ) : (
           <CourseList
-            subjects={selectedClass.subjects}
-            descriptions={selectedClass.descriptions}
-            classSel={selectedClass.className}
+            subjects={classes.find((classData) => classData.className === selectedClass)?.subjects || []}
+            descriptions={classes.find((classData) => classData.className === selectedClass)?.descriptions || {}}
+            selectedClass={selectedClass}
           />
         )}
       </main>

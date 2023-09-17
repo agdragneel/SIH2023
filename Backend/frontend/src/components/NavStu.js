@@ -29,8 +29,14 @@ export default function NavStu() {
             <li>
               <a href="/faq">FAQ</a>
             </li>
-            <li class="dashboard">
-              <a href="/dashboard">Dashboard</a>
+            <li class="dropdown">
+              <a href="#">Dashboard</a>
+              <div class="dropdown-content">
+                <a href="#">Your Courses</a>
+                <a href="#">Certificates</a>
+                <a href="#">Profile</a>
+                <a href="/logout">Logout</a>
+              </div>
             </li>
             <li className="userdisp">{details.username}</li>
           </ul>

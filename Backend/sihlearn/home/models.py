@@ -21,7 +21,11 @@ class Reg(models.Model):
     def __str__(self):
         return ((self.username)+(self.lname))
     
-    
+class video(models.Model):
+    cap=models.CharField(max_length=100)
+    vid=models.FileField(("videos/%y"), upload_to=None, max_length=100)
+    def __str__(self):
+        return self.caption
 
     #all the best 
     #chup chudirbhai

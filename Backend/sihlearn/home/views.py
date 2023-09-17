@@ -11,6 +11,7 @@ from home.serializers import *
 
 User=get_user_model()
 
+        
 class RegView(APIView):
     def get(self,request):
         output = [{"fname": output.fname,"mname": output.mname,"lname": output.lname,"username": output.username,"gender": output.gender,
@@ -50,7 +51,7 @@ def login_view(request):
             login(request,user)
             messages.success(request, "Logged in successfully.")
             print("Logging in",request.user)
-            return render(request,'home.html')
+            return redirect('/')
         else:
             #Login Not Done
             messages.error(request, "Log in failed. Incorrect Credentials.")
@@ -99,4 +100,4 @@ def faq(request):
 
 def logout_view(request):
     logout(request)
-    return render(request,'home.html')
+    return redirect('/')

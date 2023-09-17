@@ -79,6 +79,8 @@ TEMPLATES = [
         #os.path.join(BASE_DIR,"frontend/build")
         "C:\Root Data\SIH\Version1\Backend\\frontend\src\components",
         "C:\Root Data\SIH\Version1\Backend\\frontend\\build",
+        "C:\Root Data\SIH\Version1\Backend\\frontend\public\images"
+        "C:\Root Data\SIH\Version1\Backend\\frontend\\build\images"
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -140,6 +142,7 @@ STATICFILES_DIRS = [
     # static",
     "C:\Root Data\SIH\Version1\Backend\\frontend\public\static",
     "C:\Root Data\SIH\Version1\Backend\\frontend\\build\static",
+    "C:\Root Data\SIH\Version1\Backend\sihlearn\static",
     
     
     #os.path.join(BASE_DIR,"frontend/build/static")

@@ -1,8 +1,7 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 
-function CourseList({ subjects, descriptions,classSel }) {
+function CourseList({ subjects, descriptions, selectedClass }) {
   const [expandedCourses, setExpandedCourses] = useState([]);
-  const [selectedCourseUrl, setSelectedCourseUrl] = useState(null); // Add this state variable
 
   const toggleCourse = (subject) => {
     if (expandedCourses.includes(subject)) {
@@ -12,82 +11,49 @@ function CourseList({ subjects, descriptions,classSel }) {
     }
   };
 
-  // Function to handle the "View Course" button click
-  const handleViewCourse = (subject) => {
-    // Determine the URL based on the selected class and course
-    const selectedClass = 'LKG'; // Replace with the actual selected class (you can store this in state)
-    const courseUrl = determineCourseUrl(selectedClass, subject); // Implement this function
+  const determineCourseUrl = (selectedClass, subject) => {
+    const subjectUrls = {
+      LKG: {
+        Math: '/lkg-math-course',
+        Science: '/lkg-science-course',
+        English: '/lkg-english-course',
+      },
+      I: {
+        Math: '/i-math-course',
+        Science: '/i-science-course',
+        'Social Studies': '/i-social-studies-course',
+      },
+      II: {
+        Math: '/ii-math-course',
+        Science: '/ii-science-course',
+        'Social Studies': '/ii-social-studies-course',
+      },
+      III: {
+        Math: '/iii-math-course',
+        Science: '/iii-science-course',
+        'Social Studies': '/iii-social-studies-course',
+        History: '/iii-history-course',
+      },
+      IV: {
+        Math: '/iv-math-course',
+        Science: '/iv-science-course',
+        'Social Studies': '/iv-social-studies-course',
+        History: '/iv-history-course',
+      },
+      V: {
+        Math: '/v-math-course',
+        Science: '/v-science-course',
+        'Social Studies': '/v-social-studies-course',
+        History: '/v-history-course',
+      },
+    };
 
-    // Set the selectedCourseUrl state to trigger the redirect
-    setSelectedCourseUrl(courseUrl);
-  };
-
-  // Implement a function to determine the URL based on the selected class and course
-  // ...
-
-const determineCourseUrl = (selectedClass, subject) => {
-  // Define the base URL for each class
-  let baseUrl = '';
-
-  switch (selectedClass) {
-    case 'LKG':
-      baseUrl = '/lkg/';
-      break;
-    case 'I':
-      baseUrl = '/class-i/';
-      break;
-    case 'II':
-      baseUrl = '/class-ii/';
-      break;
-    case 'III':
-      baseUrl = '/class-iii/';
-      break;
-    case 'IV':
-      baseUrl = '/class-iv/';
-      break;
-    case 'V':
-      baseUrl = '/class-v/';
-      break;
-    default:
-      return '/404'; // Default or error page
-  }
-
-  // Define the subject-specific URLs based on the selected class
-  switch (subject) {
-    case 'Math':
-      return baseUrl + 'math';
-    case 'Science':
-      return baseUrl + 'science';
-    case 'English':
-      return baseUrl + 'english';
-    case 'Social Studies':
-      // For Class II
-      if (selectedClass === 'II') {
-        return baseUrl + 'social-studies';
-      }
-      // For other classes, return 404 or an appropriate error page
-      return '/404';
-    case 'History':
-      // For Class V
-      if (selectedClass === 'V') {
-        return baseUrl + 'history';
-      }
-      // For other classes, return 404 or an appropriate error page
-      return '/404';
-    default:
-      return '/404'; // Default or error page
-  }
-};
-
-// ...
-
-
-  // Handle the redirect when the selectedCourseUrl changes
-  useEffect(() => {
-    if (selectedCourseUrl) {
-      window.location.href = selectedCourseUrl; // Redirect to the selected URL
+    if (subjectUrls[selectedClass] && subjectUrls[selectedClass][subject]) {
+      return subjectUrls[selectedClass][subject];
     }
-  }, [selectedCourseUrl]);
+
+    return '/404';
+  };
 
   return (
     <div className="course-list">
@@ -101,9 +67,7 @@ const determineCourseUrl = (selectedClass, subject) => {
           </div>
           <div className={`course-details ${expandedCourses.includes(subject) ? 'expanded' : ''}`}>
             <p>{descriptions[subject]}</p>
-            <button className="view-button" onClick={() => handleViewCourse(subject)}>
-              View Course
-            </button>
+            <a href={determineCourseUrl(selectedClass, subject)} className="view-button">View Course</a>
           </div>
         </div>
       ))}
