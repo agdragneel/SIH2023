@@ -23,32 +23,64 @@ function CourseList({ subjects, descriptions }) {
   };
 
   // Implement a function to determine the URL based on the selected class and course
-  const determineCourseUrl = (selectedClass, subject) => {
-    // Add your logic to determine the URL for the given class and course
-    // You can use a switch statement, if-else conditions, or any other method to map classes and subjects to URLs
-    // Return the appropriate URL based on your logic
+  // ...
 
-    // Example:
-    switch (selectedClass) {
-      case 'LKG':
-        switch (subject) {
-          case 'Math':
-            return '/lkg-math-course';
-          case 'Science':
-            return '/lkg-science-course';
-          case 'English':
-            return '/lkg-english-course';
-          default:
-            return '/404'; // Default or error page
-        }
-      case 'I':
-        // Implement URLs for Class I subjects
-        break;
-      // Handle other classes
-      default:
-        return '/404'; // Default or error page
-    }
-  };
+const determineCourseUrl = (selectedClass, subject) => {
+  // Define the base URL for each class
+  let baseUrl = '';
+
+  switch (selectedClass) {
+    case 'LKG':
+      baseUrl = '/lkg/';
+      break;
+    case 'I':
+      baseUrl = '/class-i/';
+      break;
+    case 'II':
+      baseUrl = '/class-ii/';
+      break;
+    case 'III':
+      baseUrl = '/class-iii/';
+      break;
+    case 'IV':
+      baseUrl = '/class-iv/';
+      break;
+    case 'V':
+      baseUrl = '/class-v/';
+      break;
+    default:
+      return '/404'; // Default or error page
+  }
+
+  // Define the subject-specific URLs based on the selected class
+  switch (subject) {
+    case 'Math':
+      return baseUrl + 'math';
+    case 'Science':
+      return baseUrl + 'science';
+    case 'English':
+      return baseUrl + 'english';
+    case 'Social Studies':
+      // For Class II
+      if (selectedClass === 'II') {
+        return baseUrl + 'social-studies';
+      }
+      // For other classes, return 404 or an appropriate error page
+      return '/404';
+    case 'History':
+      // For Class V
+      if (selectedClass === 'V') {
+        return baseUrl + 'history';
+      }
+      // For other classes, return 404 or an appropriate error page
+      return '/404';
+    default:
+      return '/404'; // Default or error page
+  }
+};
+
+// ...
+
 
   // Handle the redirect when the selectedCourseUrl changes
   useEffect(() => {
