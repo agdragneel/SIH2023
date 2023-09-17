@@ -93,6 +93,7 @@ export default function Courses() {
           <CourseList
             subjects={selectedClass.subjects}
             descriptions={selectedClass.descriptions}
+            classSel={selectedClass.className}
           />
         )}
       </main>

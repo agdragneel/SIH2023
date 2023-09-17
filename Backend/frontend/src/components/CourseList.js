@@ -1,6 +1,6 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState,useEffect } from 'react';
 
-function CourseList({ subjects, descriptions }) {
+function CourseList({ subjects, descriptions,classSel }) {
   const [expandedCourses, setExpandedCourses] = useState([]);
   const [selectedCourseUrl, setSelectedCourseUrl] = useState(null); // Add this state variable
 
