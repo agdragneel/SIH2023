@@ -1,0 +1,47 @@
+/* Lectures.css */
+
+.video-select {
+    margin-bottom: 20px;
+  }
+  
+  .video-select select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-player {
+    margin-top: 20px;
+  }
+  
+  /* Style the ReactPlayer container */
+  .react-player {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the video player controls */
+  .react-player__controls {
+    background-color: #333;
+    color: white;
+  }
+  
+  /* Style the video progress bar */
+  .react-player__progress {
+    background-color: #007bff;
+  }
+  
+  /* Style the video volume bar */
+  .react-player__volume-bar {
+    background-color: #007bff;
+  }
+  
+  /* Style the video duration and time played text */
+  .react-player__time {
+    color: white;
+  }
+  

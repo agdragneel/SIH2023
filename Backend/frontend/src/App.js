@@ -1,5 +1,5 @@
 //App.js
-
+import './App.css'
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import NavAnon from "./components/NavAnon";
@@ -9,7 +9,6 @@ import Courses from "./components/Courses";
 import Faq from "./components/Faq";
 import Footer from "./components/Footer"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
 import CourseMaterial from "./components/CourseMaterials";
 
 function App() {
