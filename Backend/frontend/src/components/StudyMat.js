@@ -34,7 +34,7 @@ export default function StudyMat(props) {
 
   return (
     <div>
-      <h1>Studmat List</h1>
+      <h1>Study Material List</h1>
       <div className="Studmat-select">
         <select onChange={handlestudmatelect}>
           <option value="" disabled selected>

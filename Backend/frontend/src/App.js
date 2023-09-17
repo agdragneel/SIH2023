@@ -11,6 +11,7 @@ import CourseMaterial from './components/CourseMaterials';
 import NavTeacher from './components/NavTeacher';
 import NavStu from './components/NavStu';
 import NavAnon from './components/NavAnon';
+import MaterialUpload from './components/MaterialUpload';
 
 function App() {
   const [details, setDetails] = useState([]);
@@ -46,6 +47,7 @@ function App() {
   // Find the user's details based on the current username
   const currentUserDetails = regDetails.find((user) => user.username === details.username);
   const userRole = currentUserDetails ? currentUserDetails.position : 'anon';
+  
 
   return (
     <>
@@ -79,6 +81,7 @@ function App() {
           <Route path="/v-social-studies-course" element={<CourseMaterial course="Social Studies" class="V"/>}></Route>
           <Route path="/v-history-course" element={<CourseMaterial course="History" class="V"/>}></Route>
           <Route path="/profile" element={<Profile/>}></Route>
+          <Route path="/materialupload" element={<MaterialUpload/>}></Route>
           </Routes>
         </div>
 

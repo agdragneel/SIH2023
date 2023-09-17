@@ -4,10 +4,11 @@ from django.contrib.auth import authenticate,logout,login
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-from home.models import Reg,Videos
+from home.models import Reg,Videos,Progress
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from home.serializers import *
+from rest_framework import status 
 
 User=get_user_model()
 class VideosView(APIView):
@@ -21,7 +22,36 @@ class VideosView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
+            
+class ProgressView(APIView):
+    def get(self,request):
+        output=[{"key":output.key,"percent":output.percent}
+        for output in Progress.objects.all()]
+        return Response(output)
 
+    def post(self,request):
+        serializer=ProgressSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
+    def put(self, request, *args, **kwargs):
+        # Get the 'key' and 'percent' data from the request
+        key = request.data.get('key')
+        percent = request.data.get('percent')
+
+        # Check if 'key' and 'percent' are provided in the request
+        if not key or percent is None:
+            return Response({'message': 'Both "key" and "percent" must be provided'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            # Get the progress record by 'key' (assuming 'key' is unique)
+            progress = Progress.objects.get(key=key)
+            # Update the 'percent' field
+            progress.percent = percent
+            progress.save()
+            return Response({'message': 'Progress updated successfully'}, status=status.HTTP_200_OK)
+        except Progress.DoesNotExist:
+            return Response({'message': 'Progress record not found'}, status=status.HTTP_404_NOT_FOUND)
 class StudExView(APIView):
     def get(self,request):
         output=[{"title":output.title,"subject":output.subject,"vclass":output.vclass,"desc":output.desc,"link":output.link}
@@ -76,6 +106,9 @@ def home(request):
     return render(request,'index.html')
 
 def profile(request):
+    return render(request,'index.html')
+
+def materialupload(request):
     return render(request,'index.html')
 
 def login_view(request):

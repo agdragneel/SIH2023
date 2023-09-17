@@ -53,5 +53,8 @@ class StudEx(models.Model):
     def __str__(self):
         return self.title
 
-#all the best 
-# #chup chudirbhai
+class Progress(models.Model):
+    key = models.CharField(max_length=100)
+    percent = models.PositiveIntegerField(default=0)
+    def __str__(self):
+        return self.key

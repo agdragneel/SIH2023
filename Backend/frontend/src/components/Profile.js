@@ -59,7 +59,12 @@ function Profile() {
         />
         <h1>{currentUserDetails ? currentUserDetails.fname +' '+currentUserDetails.mname+' '+ currentUserDetails.lname : 'N/A'}</h1>
         <p>{currentUserDetails ? currentUserDetails.username : 'N/A'}</p>
-        <p>Class:{currentUserDetails ? currentUserDetails.standard : 'N/A'}</p>
+        {/* <p>Class:{currentUserDetails ? currentUserDetails.standard : 'N/A'}</p> */}
+        {currentUserDetails && currentUserDetails.position === 'teacher' ? (
+          <p>Teacher</p>
+        ):(
+          <p>Class:{currentUserDetails ? currentUserDetails.standard : 'N/A'}</p>
+        )}
       </div>
       <div className="profile-settings">
         <h2>User Information</h2>
@@ -67,9 +72,17 @@ function Profile() {
         <div className="profile-option">
         <p>Gender: {currentUserDetails ? currentUserDetails.gender : 'N/A'}</p>
           <p>Email: {currentUserDetails ? currentUserDetails.email : 'N/A'}</p>
+
+          
+          {currentUserDetails && currentUserDetails.position === 'teacher' ? (
+          <>
+          </>
+        ):(
+          <>
           <p>Phone: {currentUserDetails ? currentUserDetails.phn : 'N/A'}</p>
           <p>Guardian Name: {currentUserDetails ? currentUserDetails.guard_name : 'N/A'}</p>
-  
+          </>
+        )}
         </div>
         {/* Add more profile options as needed */}
       </div>

@@ -27,6 +27,7 @@ urlpatterns = [
     path("logout",views.logout_view,name="logout"),
     path('currentuser/', views.LoggedInUserView.as_view(), name='currentuser'),
     path('videoapi/',VideosView.as_view(),name="Vedio"),
+     path('progressapi/', ProgressView.as_view(), name='progress-api'),
     path('studmatapi/',StudMatView.as_view(),name="mats"),
     path('studexapi/',StudExView.as_view(),name="exerc"),
     path("lkg-math-course",views.courses,name='lkgmath'),
@@ -39,6 +40,7 @@ urlpatterns = [
     path("iv-math-course",views.courses,name='IV-math'),
     path("iv-science-course",views.courses,name='IV-science'),
     path("profile",views.profile,name='profile'),
+    path("materialupload",views.materialupload,name='material upload'),
     
 
     

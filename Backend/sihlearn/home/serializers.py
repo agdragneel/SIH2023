@@ -6,6 +6,10 @@ class RegSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reg
         fields = '__all__'
+class ProgressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Progress
+        fields = '__all__'
 
 User=get_user_model()
 
@@ -21,10 +25,10 @@ class VideosSerializer(serializers.ModelSerializer):
 
 class StudMatSerializer(serializers.ModelSerializer):
         class Meta:
-            model=Videos
+            model=StudMat
             fields=('title','subject','vclass','desc','link')
 
 class StudExSerializer(serializers.ModelSerializer):
         class Meta:
-            model=Videos
+            model=StudEx
             fields=('title','subject','vclass','desc','link')

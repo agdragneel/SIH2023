@@ -3,7 +3,8 @@ import Exercises from './Exercises'
 import Lectures from './Lectures'
 import StudyMat from './StudyMat'
 
-
+import Progressbar from './progress'
+import './CourseMaterials.css'
 export default function CourseMaterials(props) {
   return (
     <>
@@ -29,6 +30,7 @@ export default function CourseMaterials(props) {
             Exercise PDF(s):
         </h2>
             <Exercises course={props.course} class={props.class}></Exercises>
+            <Progressbar course={props.course} class={props.class}/>
         
     </section>
     </>
