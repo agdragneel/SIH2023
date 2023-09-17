@@ -4,13 +4,22 @@ from django.contrib.auth import authenticate,logout,login
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-from home.models import Reg
+from home.models import Reg,Videos
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from home.serializers import *
 
 User=get_user_model()
-
+class VideosView(APIView):
+    def get(self,request):
+        output=[{"cap":output.cap,"vid_link":output.vid_link}
+        for output in Videos.objects.all()]
+        return Response(output)
+    def post(self,request):
+        serializer=VideosSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)    
         
 class RegView(APIView):
     def get(self,request):

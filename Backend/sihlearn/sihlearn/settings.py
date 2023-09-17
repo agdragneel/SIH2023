@@ -65,7 +65,9 @@ CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'http://127.0.0.1:3000'
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
 ]
 
 CORS_ALLOWED_CREDENTIAL = True
@@ -79,7 +81,7 @@ TEMPLATES = [
         #os.path.join(BASE_DIR,"frontend/build")
         "C:\Root Data\SIH\Version1\Backend\\frontend\src\components",
         "C:\Root Data\SIH\Version1\Backend\\frontend\\build",
-        "C:\Root Data\SIH\Version1\Backend\\frontend\public\images"
+        "C:\Root Data\SIH\Version1\Backend\\frontend\public\images",
         "C:\Root Data\SIH\Version1\Backend\\frontend\\build\images"
         ],
         "APP_DIRS": True,
