@@ -1,0 +1,77 @@
+/* Profile Container */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Profile Header */
+  .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .profile-header h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .profile-header p {
+    font-size: 16px;
+    margin: 0;
+    color: #666;
+  }
+  
+  /* Profile Settings */
+  .profile-settings {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .profile-settings h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+ /* Profile Option Styles */
+.profile-option {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column; /* Ensure one <p> per line */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+}
+
+.profile-option p {
+  font-size: 16px;
+  margin: 5px 0; /* Add some margin for better spacing */
+}
+
+.profile-option button {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+  margin-top: 10px; /* Add margin to separate from <p> elements */
+}
+
+.profile-option button:hover {
+  background-color: #005a9e;
+}
+
+  

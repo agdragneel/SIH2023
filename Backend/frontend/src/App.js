@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Courses from "./components/Courses";
 import Faq from "./components/Faq";
 import Footer from "./components/Footer"
+import Profile from './components/Profile';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import CourseMaterial from "./components/CourseMaterials";
 
@@ -60,6 +61,7 @@ function App() {
           <Route path="/v-math-course" element={<CourseMaterial course="Math" class="V"/>}></Route>
           <Route path="/v-social-studies-course" element={<CourseMaterial course="Social Studies" class="V"/>}></Route>
           <Route path="/v-history-course" element={<CourseMaterial course="History" class="V"/>}></Route>
+          <Route path="/profile" element={<Profile/>}></Route>
           
         </Routes>
 

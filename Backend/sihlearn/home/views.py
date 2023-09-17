@@ -12,11 +12,36 @@ from home.serializers import *
 User=get_user_model()
 class VideosView(APIView):
     def get(self,request):
-        output=[{"cap":output.cap,"vid_link":output.vid_link}
+        output=[{"cap":output.cap,"vid_link":output.vid_link,"title":output.title,"subject":output.subject,"vclass":output.vclass,"desc":output.desc}
         for output in Videos.objects.all()]
         return Response(output)
+
     def post(self,request):
         serializer=VideosSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
+
+class StudExView(APIView):
+    def get(self,request):
+        output=[{"title":output.title,"subject":output.subject,"vclass":output.vclass,"desc":output.desc,"link":output.link}
+        for output in StudEx.objects.all()]
+        return Response(output)
+
+    def post(self,request):
+        serializer=StudExSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)   
+
+class StudMatView(APIView):
+    def get(self,request):
+        output=[{"title":output.title,"subject":output.subject,"vclass":output.vclass,"desc":output.desc,"link":output.link}
+        for output in StudMat.objects.all()]
+        return Response(output)
+
+    def post(self,request):
+        serializer=StudMatSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)    
@@ -48,6 +73,9 @@ class LoggedInUserView(APIView):
 
         
 def home(request):
+    return render(request,'index.html')
+
+def profile(request):
     return render(request,'index.html')
 
 def login_view(request):

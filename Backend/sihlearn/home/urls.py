@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include
 from home import views
-from home.views import RegView,VideosView
+from home.views import *
 admin.site.site_header = "UMSRA Admin"
 admin.site.site_title = "UMSRA Admin Portal"
 admin.site.index_title = "Welcome to UMSRA Researcher Portal"
@@ -27,6 +27,8 @@ urlpatterns = [
     path("logout",views.logout_view,name="logout"),
     path('currentuser/', views.LoggedInUserView.as_view(), name='currentuser'),
     path('videoapi/',VideosView.as_view(),name="Vedio"),
+    path('studmatapi/',StudMatView.as_view(),name="mats"),
+    path('studexapi/',StudExView.as_view(),name="exerc"),
     path("lkg-math-course",views.courses,name='lkgmath'),
     path("v-history-course",views.courses,name='V-HISTORY'),
     path("v-social-studies-course",views.courses,name='V-SOCIAL'),
@@ -36,6 +38,7 @@ urlpatterns = [
     path("iv-social-studies-course",views.courses,name='IV-SOCIAL'),
     path("iv-math-course",views.courses,name='IV-math'),
     path("iv-science-course",views.courses,name='IV-science'),
+    path("profile",views.profile,name='profile'),
     
 
     

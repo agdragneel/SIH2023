@@ -5,9 +5,10 @@ import axios from "axios";
 
 function Lectures(props) {
   const [videos, setVideos] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState(null); // State to store selected video URL
-  //const vidPrefix = props.class.toLowerCase() + '-' + props.course.toLowerCase();
-  const vidPrefix="lkg";
+  const [selectedVideoUrl, setSelectedVideoUrl] = useState(null); // State to store selected video URL
+  const [selectedVideo, setSelectedVideo] = useState({ title: "", desc: "" }); // State to store selected video info
+  const vidPrefix = props.class.toLowerCase() + '-' + props.course.toLowerCase();
+
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/videoapi")
@@ -23,7 +24,10 @@ function Lectures(props) {
   // Handle video selection from dropdown
   const handleVideoSelect = (event) => {
     const selectedVideoUrl = event.target.value;
-    setSelectedVideo(selectedVideoUrl);
+    const selectedVideoInfo = videos.find(video => video.vid_link === selectedVideoUrl);
+
+    setSelectedVideoUrl(selectedVideoUrl);
+    setSelectedVideo(selectedVideoInfo);
   };
 
   return (
@@ -36,19 +40,21 @@ function Lectures(props) {
           </option>
           {videos.map((video) => (
             <option key={video.id} value={video.vid_link}>
-              {video.cap}
+              {video.title}
             </option>
           ))}
         </select>
       </div>
-      {selectedVideo && (
+      {selectedVideoUrl && (
         <div className="video-player">
           <ReactPlayer
-            url={selectedVideo} // URL of the selected video
+            url={selectedVideoUrl} // URL of the selected video
             controls={true} // Show video controls
             width="500px" // Set video width
             height="300px" // Set video height
           />
+          <h2>{selectedVideo.title}</h2>
+          <p>{selectedVideo.desc}</p>
         </div>
       )}
     </div>
