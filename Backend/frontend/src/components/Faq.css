@@ -1,0 +1,16 @@
+/* Style the FAQ section */
+.faq-section {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .question {
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 10px;
+  }
+  
+  .answer {
+    font-weight: normal;
+  }

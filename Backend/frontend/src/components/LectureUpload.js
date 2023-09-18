@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './LectureUpload.css'; // Import the CSS file
 
 export default function LectureUpload(props) {
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
   const [vclass, setVClass] = useState('');
   const [desc, setDesc] = useState('');
-  const [vidLink, setVidLink] = useState(''); // To store the video link
+  const [vidLink, setVidLink] = useState('');
   const csrfToken = document.cookie
     .split(';')
     .find(cookie => cookie.trim().startsWith('csrftoken='))
@@ -21,14 +22,14 @@ export default function LectureUpload(props) {
       subject,
       vclass,
       desc,
-      vid_link: vidLink, // Include the video link in the formData
+      vid_link: vidLink,
     };
 
     try {
       const response = await axios.post('http://127.0.0.1:8000/videoapi/', formData, {
         headers: {
           'X-CSRFToken': csrfToken,
-          'Content-Type': 'application/json', // Specify JSON content type
+          'Content-Type': 'application/json',
         },
       });
 
@@ -41,31 +42,62 @@ export default function LectureUpload(props) {
   };
 
   return (
-    <div>
+    <div className="lecture-upload-container">
       <h1>Video Link Upload</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <form onSubmit={handleSubmit} className="lecture-upload-form">
+        <div className="form-group">
+          <label htmlFor="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="form-control"
+          />
         </div>
-        <div>
-          <label>Subject:</label>
-          <input type="text" value={subject} onChange={(e) => setSubject(e.target.value)} />
+        <div className="form-group">
+          <label htmlFor="subject">Subject:</label>
+          <input
+            type="text"
+            id="subject"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            className="form-control"
+          />
         </div>
-        <div>
-          <label>Class:</label>
-          <input type="text" value={vclass} onChange={(e) => setVClass(e.target.value)} />
+        <div className="form-group">
+          <label htmlFor="vclass">Class:</label>
+          <input
+            type="text"
+            id="vclass"
+            value={vclass}
+            onChange={(e) => setVClass(e.target.value)}
+            className="form-control"
+          />
         </div>
-        <div>
-          <label>Description:</label>
-          <textarea value={desc} onChange={(e) => setDesc(e.target.value)} />
+        <div className="form-group">
+          <label htmlFor="desc">Description:</label>
+          <textarea
+            id="desc"
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
+            className="form-control"
+          />
         </div>
-        <div>
-          <label>Video Link:</label>
-          <input type="text" value={vidLink} onChange={(e) => setVidLink(e.target.value)} />
+        <div className="form-group">
+          <label htmlFor="vidLink">Video Link:</label>
+          <input
+            type="text"
+            id="vidLink"
+            value={vidLink}
+            onChange={(e) => setVidLink(e.target.value)}
+            className="form-control"
+          />
         </div>
 
-        <button type="submit">Upload Video Link</button>
+        <button type="submit" className="upload-button">
+          Upload Video Link
+        </button>
       </form>
     </div>
   );

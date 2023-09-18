@@ -1,54 +1,54 @@
-/* Exercise Container */
-.exercise-container {
-    padding: 20px;
-  }
-  
-  /* Heading Styles */
-  .exercise-container h1 {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Dropdown Styles */
-  .exercise-select select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  /* Selected Exercise Styles */
-  .selected-exercise {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-  }
-  
-  .selected-exercise h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .selected-exercise p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  /* Download Button Styles */
-  .downloadbutton {
-    display: inline-block;
-    background-color: #0078d4;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .downloadbutton:hover {
-    background-color: #005a9e;
-  }
-  
+/* Exercises.css */
+
+.Exercises {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
+
+.ExerciseTitle {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.ExerciseSelect {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  width: 100%;
+}
+
+.SelectedExercise {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.ExerciseDescription {
+  font-size: 18px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.DownloadButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.DownloadButton:hover {
+  background-color: #0056b3;
+}

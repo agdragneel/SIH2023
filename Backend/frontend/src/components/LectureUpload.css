@@ -1,13 +1,13 @@
-/* MaterialUpload.css */
+/* LectureUpload.css */
 
 /* Container styles */
-.material-upload-container {
+.lecture-upload-container {
     text-align: center;
     margin: 20px;
   }
   
   /* Form styles */
-  .material-upload-form {
+  .lecture-upload-form {
     display: flex;
     flex-direction: column;
     max-width: 400px;

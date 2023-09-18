@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-
+import './NavStu.css'
 export default function NavStu() {
   const [details, setDetails] = useState([]);
   

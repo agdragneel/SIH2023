@@ -1,0 +1,45 @@
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px; /* Add margin to separate Admin Control */
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+    position: relative; 
+  }
+  
+  .admin-control {
+    margin-right: 0;
+    margin-left: auto; /* Push Admin Control to the right */
+  }
+  
+  nav ul li:first-child {
+    margin-left: 10px; /* To put Home a bit left */
+  }
+  .userdisp{
+    
+      margin-right: 0;
+      margin-left: auto; /* Push username to the right */
+    }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    
+  }
+  
+  
+  nav a:hover {
+    color: #EBB02C; /* Change to your desired hover color */
+  }

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './NavAnon.css'
 export default function NavAnon() {
   return (
     <div>

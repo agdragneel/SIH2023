@@ -1,13 +1,13 @@
-/* MaterialUpload.css */
+/* NotesUpload.css */
 
 /* Container styles */
-.material-upload-container {
+.notes-upload-container {
     text-align: center;
     margin: 20px;
   }
   
   /* Form styles */
-  .material-upload-form {
+  .notes-upload-form {
     display: flex;
     flex-direction: column;
     max-width: 400px;

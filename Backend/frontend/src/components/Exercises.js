@@ -1,5 +1,8 @@
+// Exercises.js
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import './Exercises.css';
 
 export default function Exercises(props) {
   const [exercises, setExercises] = useState([]);
@@ -33,10 +36,10 @@ export default function Exercises(props) {
   };
 
   return (
-    <div>
-      <h1>Exercise List</h1>
+    <div className="Exercises">
+      <h1 className="ExerciseTitle">Exercise List</h1>
       <div className="exercise-select">
-        <select onChange={handleExerciseSelect}>
+        <select className="ExerciseSelect" onChange={handleExerciseSelect}>
           <option value="" disabled selected>
             Select an Exercise
           </option>
@@ -48,10 +51,10 @@ export default function Exercises(props) {
         </select>
       </div>
       {selectedExercise && (
-        <div className="selected-exercise">
+        <div className="SelectedExercise">
           <h2>{selectedExercise.title}</h2>
-          <p>{selectedExercise.desc}</p>
-          <a href={selectedExercise.link} className="downloadbutton" target="_blank">Download Now</a>
+          <p className="ExerciseDescription">{selectedExercise.desc}</p>
+          <a href={selectedExercise.link} className="DownloadButton" target="_blank">Download Now</a>
         </div>
       )}
     </div>

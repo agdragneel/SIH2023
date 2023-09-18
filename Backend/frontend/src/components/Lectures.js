@@ -1,7 +1,9 @@
+// Lectures.js
+
 import React, { useEffect, useState } from "react";
-import './Lectures.css'
 import ReactPlayer from 'react-player';
 import axios from "axios";
+import './Lectures.css';
 
 function Lectures(props) {
   const [videos, setVideos] = useState([]);
@@ -31,10 +33,10 @@ function Lectures(props) {
   };
 
   return (
-    <div>
-      <h1>Video List</h1>
+    <div className="Lectures">
+      <h1 className="LectureTitle">Video List</h1>
       <div className="video-select">
-        <select onChange={handleVideoSelect}>
+        <select className="VideoSelect" onChange={handleVideoSelect}>
           <option value="" disabled selected>
             Select a Video
           </option>
@@ -46,15 +48,17 @@ function Lectures(props) {
         </select>
       </div>
       {selectedVideoUrl && (
-        <div className="video-player">
+        <div className="video-container">
           <ReactPlayer
             url={selectedVideoUrl} // URL of the selected video
             controls={true} // Show video controls
-            width="500px" // Set video width
-            height="300px" // Set video height
+            width="100%" // Set video width
+            height="100%" // Set video height
           />
-          <h2>{selectedVideo.title}</h2>
-          <p>{selectedVideo.desc}</p>
+          <div className="video-info">
+            <h2>{selectedVideo.title}</h2>
+            <p>{selectedVideo.desc}</p>
+          </div>
         </div>
       )}
     </div>

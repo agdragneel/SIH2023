@@ -8,6 +8,7 @@ function ClassCard({ classData, onSelect }) {
     >
       <img src={classData.imgurl} alt={classData.className} />
       <h3>{classData.className}</h3>
+      <p>{classData.classdesc}</p>
     </div>
   );
 }
