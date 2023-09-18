@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import './StudyMat.css'
 
 export default function StudyMat(props) {
   const [studmat, setStudmat] = useState([]);
@@ -35,10 +36,11 @@ export default function StudyMat(props) {
   return (
     <div>
       <h1>Study Material List</h1>
+      <p>Use the dropdown menu selection below to select the pdf you want, and click on the Download Now button to access it.</p>
       <div className="Studmat-select">
         <select onChange={handlestudmatelect}>
           <option value="" disabled selected>
-            Select an Study Material
+            Select a Study Material
           </option>
           {filteredstudmat.map((Studmat) => (
             <option key={Studmat.id} value={Studmat.title}>

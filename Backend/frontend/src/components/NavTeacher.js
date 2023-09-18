@@ -12,8 +12,8 @@ export default function NavTeacher() {
             <li class="dropdown">
               <a href="#">Courses Upload</a>
               <div class="dropdown-content">
-                <a href="#">Video Upload</a>
-                <a href="#">Text Material Upload</a>
+                <a href="/lectureupload">Video Upload</a>
+                <a href="/notesupload">Text Material Upload</a>
                 <a href="materialupload">Exercise Upload</a>
               </div>
             </li>
@@ -23,7 +23,7 @@ export default function NavTeacher() {
             <li class="dropdown">
               <a href="#">Dashboard</a>
               <div class="dropdown-content">
-                <a href="#">View Submissions</a>
+                {/* <a href="#">View Submissions</a> */}
                 <a href="/profile">Profile</a>
                 <a href="/logout">Logout</a>
               </div>

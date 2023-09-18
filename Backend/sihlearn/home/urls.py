@@ -41,6 +41,8 @@ urlpatterns = [
     path("iv-science-course",views.courses,name='IV-science'),
     path("profile",views.profile,name='profile'),
     path("materialupload",views.materialupload,name='material upload'),
+    path("notesupload",views.materialupload,name='notes upload'),
+    path("lectureupload",views.materialupload,name='lecture upload'),
     
 
     

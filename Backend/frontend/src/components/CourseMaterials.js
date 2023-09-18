@@ -12,9 +12,7 @@ export default function CourseMaterials(props) {
         <h1>You are currently viewing the {props.course} Course page for {props.class}</h1>
     </div>
     <section>
-        <h2>
-            Text Material PDF(s):
-        </h2>
+        
             <StudyMat course={props.course} class={props.class}></StudyMat>
         
     </section>

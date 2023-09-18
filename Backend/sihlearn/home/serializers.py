@@ -21,7 +21,7 @@ class UserSerializer(serializers.ModelSerializer):
 class VideosSerializer(serializers.ModelSerializer):
         class Meta:
             model=Videos
-            fields=('cap','vid_link','title','subject','vlass','desc')
+            fields=('cap','vid_link','title','subject','vclass','desc')
 
 class StudMatSerializer(serializers.ModelSerializer):
         class Meta:

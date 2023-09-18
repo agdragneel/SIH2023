@@ -35,8 +35,8 @@ export default function NavStu() {
             <li class="dropdown">
               <a href="#">Dashboard</a>
               <div class="dropdown-content">
-                <a href="#">Your Courses</a>
-                <a href="#">Certificates</a>
+                {/* <a href="#">Your Courses</a> */}
+                {/* <a href="#">Certificates</a> */}
                 <a href="/profile">Profile</a>
                 <a href="/logout">Logout</a>
               </div>

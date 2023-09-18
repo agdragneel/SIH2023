@@ -12,6 +12,8 @@ import NavTeacher from './components/NavTeacher';
 import NavStu from './components/NavStu';
 import NavAnon from './components/NavAnon';
 import MaterialUpload from './components/MaterialUpload';
+import NotesUpload from './components/NotesUpload';
+import LectureUpload from './components/LectureUpload';
 
 function App() {
   const [details, setDetails] = useState([]);
@@ -82,6 +84,8 @@ function App() {
           <Route path="/v-history-course" element={<CourseMaterial course="History" class="V"/>}></Route>
           <Route path="/profile" element={<Profile/>}></Route>
           <Route path="/materialupload" element={<MaterialUpload/>}></Route>
+          <Route path="/notesupload" element={<NotesUpload/>}></Route>
+          <Route path="/lectureupload" element={<LectureUpload/>}></Route>
           </Routes>
         </div>
 

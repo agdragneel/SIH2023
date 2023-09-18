@@ -1,32 +1,56 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react';
+import './Home.css'
 export default function Home() {
+  /*const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Array of image URLs for the carousel
+  const carouselImages = [
+    'https://source.unsplash.com/1600x200?learning,education',
+    'https://source.unsplash.com/1600x200?student,school',
+    'https://source.unsplash.com/1600x200?india,school',
+  ];
+
+  // Function to advance to the next slide
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+  };
+
+  // Automatically advance to the next slide every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 3000);
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);*/
+
+  // JavaScript to trigger animation for the About the Company section and images
+  useEffect(() => {
+    const companyInfo = document.querySelector('.company-info');
+    const companyPhotos = document.querySelectorAll('.company-photos img');
+
+    companyInfo.style.opacity = '1';
+    companyInfo.style.transform = 'translateY(0)';
+
+    companyPhotos.forEach((photo) => {
+      photo.style.opacity = '1';
+      photo.style.transform = 'translateY(0)';
+    });
+  }, []);
+
   return (
     <div>
-      <>
-      <div className="carousel-container">
-        <div className="carousel">
-          <img
-            className="carousel-slide"
-            src="https://source.unsplash.com/1600x200?learning,education"
-            alt="Image 1"
-          />
-          <img
-            className="carousel-slide"
-            src="https://source.unsplash.com/1600x200?student,school"
-            alt="Image 2"
-          />
-          <img
-            className="carousel-slide"
-            src="https://source.unsplash.com/1600x200?india,school"
-            alt="Image 3"
-          />
-        </div>
+      <div className="carousel-container-static">
+      <img
+        src="https://i.ibb.co/RgJDNq0/Banner.png"
+        alt="Static Image"
+        className="static-image"
+      />
+
+      
       </div>
 
       <section className="hero">
-        <h1>Welcome to E-Learning</h1>
+        <h1>Welcome to RoamEd</h1>
         <p>Learn at your own pace, anytime, anywhere.</p>
+        <p>Education in motion.</p>
         <a href="#" className="cta-button">
           Get Started
         </a>
@@ -34,17 +58,12 @@ export default function Home() {
 
       <section className="company-info">
         <div className="company-text">
-          <h2>About Our Company</h2>
+          <h2>About RoamEd</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            commodo eget est non viverra. Nullam varius nisl vel turpis
-            vehicula, at posuere est tristique. Sed eu mauris nec lorem aliquam
-            laoreet vel id lorem.
+          At RoamEd, we are dedicated to making a positive impact on the lives of tribal children who face unique challenges due to their nomadic lifestyles. Our mission is to provide a top-notch educational platform that empowers these young learners to access quality education, regardless of their geographic mobility.
           </p>
           <p>
-            Proin euismod bibendum tellus, in laoreet odio gravida eu. Sed sit
-            amet dignissim ante. Fusce et sapien ac libero venenatis ultrices
-            non eget dui.
+          Our platform is designed to be flexible and accessible, allowing tribal children to continue their studies seamlessly while relocating. We're committed to bridging the educational gap and empowering these young learners for a brighter future.
           </p>
           <blockquote>
             <p>
@@ -64,7 +83,6 @@ export default function Home() {
           />
         </div>
       </section>
-    </>
     </div>
-  )
+  );
 }

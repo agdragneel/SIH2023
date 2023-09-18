@@ -52,6 +52,9 @@ class ProgressView(APIView):
             return Response({'message': 'Progress updated successfully'}, status=status.HTTP_200_OK)
         except Progress.DoesNotExist:
             return Response({'message': 'Progress record not found'}, status=status.HTTP_404_NOT_FOUND)
+
+
+            
 class StudExView(APIView):
     def get(self,request):
         output=[{"title":output.title,"subject":output.subject,"vclass":output.vclass,"desc":output.desc,"link":output.link}

@@ -6,7 +6,7 @@ function ClassCard({ classData, onSelect }) {
       className={`class-card ${classData.className}`}
       onClick={() => onSelect(classData.className, classData.subjects[0])}
     >
-      <img src={`images/${classData.className}.jpg`} alt={classData.className} />
+      <img src={classData.imgurl} alt={classData.className} />
       <h3>{classData.className}</h3>
     </div>
   );
