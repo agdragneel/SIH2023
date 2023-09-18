@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './MaterialUpload.css'; // Import the CSS file
 
 export default function MaterialUpload() {
+  const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
   const [vclass, setVClass] = useState('');
@@ -33,16 +35,19 @@ export default function MaterialUpload() {
       });
 
       console.log('Material link uploaded successfully:', response.data);
+      navigate('/');
       // Clear form fields or show a success message as needed
     } catch (error) {
       console.error('Error uploading material link:', error);
       // Handle the error, show an error message, etc.
+      navigate('/');
     }
+    
   };
 
   return (
     <div className="material-upload-container">
-      <h1>Material Upload</h1>
+      <h1>Exercise Upload</h1>
       <form onSubmit={handleSubmit} className="material-upload-form">
         <div className="form-group">
           <label htmlFor="title">Title:</label>
@@ -94,7 +99,7 @@ export default function MaterialUpload() {
           />
         </div>
         <button type="submit" className="upload-button">
-          Upload Material
+          Upload Exercise
         </button>
       </form>
     </div>

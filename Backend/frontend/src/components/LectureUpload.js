@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './LectureUpload.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
 
 export default function LectureUpload(props) {
+  const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
   const [vclass, setVClass] = useState('');
@@ -34,6 +36,7 @@ export default function LectureUpload(props) {
       });
 
       console.log('Video link uploaded successfully:', response.data);
+      navigate('/');
       // Clear form fields or show a success message as needed
     } catch (error) {
       console.error('Error uploading video link:', error);
