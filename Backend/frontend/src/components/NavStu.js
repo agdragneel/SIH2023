@@ -39,6 +39,7 @@ export default function NavStu() {
                 {/* <a href="#">Certificates</a> */}
                 <a href="/profile">Profile</a>
                 <a href="/mcqanswer">Take a Test</a>
+                <a href="/feedbackUpload">Feedback</a>
                 <a href="/logout">Logout</a>
               </div>
             </li>

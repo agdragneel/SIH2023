@@ -24,11 +24,11 @@ class Reg(models.Model):
     
 
 class Videos(models.Model):
+    title=models.CharField(max_length=100,default=" ",unique=True)
     cap = models.CharField(max_length=100)
     vid_link = models.URLField(max_length=200,default="https://youtu.be/0YHyALlmB8A?si=WRw2gLnPTm8acMEO")
-    title=models.CharField(max_length=100,default=" ")
     subject=models.CharField(max_length=100,default=" ")
-    vclass=models.CharField(max_length=100,default=" ")
+    vclass=models.CharField(max_length=100,default=" ") 
     desc=models.TextField(default=" ")
 
     def __str__(self):
@@ -80,3 +80,11 @@ class Feedback(models.Model):
 
         def __str__(self):
             return f"Feedback from {self.student.username}"
+
+
+class Comment(models.Model):
+    username=models.CharField(max_length=100)
+    video_title=models.CharField(max_length=100,default="")
+    subject=models.CharField(max_length=100,default=" ")
+    vclass=models.CharField(max_length=100,default=" ")
+    content=models.TextField(default="")

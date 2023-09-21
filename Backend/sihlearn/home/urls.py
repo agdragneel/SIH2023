@@ -50,4 +50,8 @@ urlpatterns = [
     path("mcqview",views.materialupload,name='mcq view'),
     path('feedback/', views.FeedbackView.as_view(), name='feedback-list-create'),
     path("feedbackUpload",views.materialupload,name='feedback upload'),
+    path('comment/', views.CommentAPIView.as_view(), name='comment-list'),
+
+
+
 ]

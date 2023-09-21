@@ -1,0 +1,75 @@
+/* ViewTests.css */
+
+/* Styling for the main container */
+.view-tests-container {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  /* Styling for the select element */
+  .select-testname label {
+    font-weight: bold;
+  }
+  
+  .select-testname select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Styling for the questions list */
+  .questions-list h3 {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  /* Styling for each question item */
+  .question-item {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for question description */
+  .question-desc {
+    font-weight: bold;
+  }
+  
+  /* Styling for options */
+  .options-label {
+    font-weight: bold;
+  }
+  
+  .options-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .options-list li {
+    margin-left: 20px;
+  }
+  
+  /* Styling for correct option */
+  .correct-option {
+    font-weight: bold;
+  }
+  
+  /* Styling for subject label */
+  .subject-label {
+    font-weight: bold;
+  }
+  
+  /* Styling for class label */
+  .class-label {
+    font-weight: bold;
+  }
+  

@@ -63,3 +63,31 @@
   width: 100%;
   height: 100%;
 }
+
+/* Style Comment List Items */
+.comment-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-section li {
+  margin-bottom: 20px; /* Add spacing between comments */
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comment-section li strong {
+  font-weight: bold;
+}
+
+/* Style each comment differently by alternating background colors */
+.comment-section li:nth-child(even) {
+  background-color: #eaeaea;
+}
+
+.comment-section li:nth-child(odd) {
+  background-color: #f9f9f9;
+}

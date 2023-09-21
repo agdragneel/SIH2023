@@ -1,0 +1,56 @@
+/* Feedback.css */
+
+.FeedbackContainer {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+  }
+  
+  .FeedbackTitle {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .FeedbackInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: vertical;
+  }
+  
+  .SubmitButton {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .SubmitButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .FeedbackList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .FeedbackItem {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .FeedbackItem:last-child {
+    margin-bottom: 0; /* Remove bottom margin from the last item */
+  }
+  

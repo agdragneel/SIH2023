@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Feedback.css'; // Import your CSS file
 
 const Feedback = () => {
     const [feedbackList, setFeedbackList] = useState([]);
@@ -69,19 +70,20 @@ const Feedback = () => {
     };
 
     return (
-        <div>
-            <h1>Feedback Section</h1>
+        <div className="FeedbackContainer">
+            <h1 className="FeedbackTitle">Feedback Section</h1>
             <textarea
+                className="FeedbackInput"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Write your feedback here"
             ></textarea>
-            <button onClick={handleSubmit}>Submit Feedback</button>
-            <ul>
-                {feedbackList.map((feedback) => (
-                    <li key={feedback.id}>{feedback.text}</li>
-                ))}
-            </ul>
+            <button className="SubmitButton" onClick={handleSubmit}>Submit Feedback</button>
+            {/* <ul className="FeedbackList"> */}
+                {/* {feedbackList.map((feedback) => ( */}
+                    {/* <li key={feedback.id} className="FeedbackItem">{feedback.text}</li> */}
+                {/* ))} */}
+            {/* </ul> */}
         </div>
     );
 };

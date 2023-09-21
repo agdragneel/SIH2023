@@ -41,3 +41,13 @@ class FeedbackSerializer(serializers.ModelSerializer):
          class Meta:
             model = Feedback
             fields = ('id', 'student', 'text', 'created_at')
+
+class TestQuestionsSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = TestQuestions
+            fields='__all__'
+
+class CommentSerializer(serializers.ModelSerializer):
+        class Meta:
+            model=Comment
+            fields='__all__'

@@ -193,3 +193,10 @@ class FeedbackView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         # Automatically set the student field to the currently logged-in user
         serializer.save(student=self.request.user)
+
+
+class CommentAPIView(generics.ListCreateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+

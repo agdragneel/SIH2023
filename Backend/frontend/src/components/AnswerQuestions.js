@@ -31,7 +31,14 @@ const QuestionList = () => {
       
       axios.get(`http://localhost:8000/testquestions/?testname=${testname}`)
         .then((response) => {
-          setQuestions(response.data);
+          const filter=selectedTestname.split(' ')[0];
+          console.log("Filter:",filter)
+          console.log("Received Response Data:",response.data);
+          console.log("Selected Test Name:",selectedTestname)
+          const filteredQuestions = response.data.filter(question => (question.testname === filter));
+          
+          console.log("Filtered Data:",filteredQuestions)
+          setQuestions(filteredQuestions);
           // Clear previous responses, incorrect questions, and the submitted flag when changing the test name
           setResponses({});
           setIncorrectQuestions([]);

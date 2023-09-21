@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './ViewTests.css'; // Import the CSS file
 
 const ViewTests = () => {
   const [testnames, setTestnames] = useState([]);
@@ -23,7 +24,9 @@ const ViewTests = () => {
     if (selectedTestname) {
       axios.get(`http://localhost:8000/testquestions/?testname=${selectedTestname}`)
         .then((response) => {
-          setQuestions(response.data);
+          const filter = selectedTestname.split(' ')[0];
+          const filteredQuestions = response.data.filter(question => (question.testname === filter));
+          setQuestions(filteredQuestions);
         })
         .catch((error) => {
           console.error(error);
@@ -32,9 +35,9 @@ const ViewTests = () => {
   }, [selectedTestname]);
 
   return (
-    <div>
+    <div className="view-tests-container"> {/* Apply a class name for the container */}
       <h1>Question List</h1>
-      <div>
+      <div className="select-testname"> {/* Apply a class name for the select */}
         <label>Select Test Name:</label>
         <select
           value={selectedTestname}
@@ -48,25 +51,25 @@ const ViewTests = () => {
           ))}
         </select>
       </div>
-      <div>
+      <div className="questions-list"> {/* Apply a class name for the questions list */}
         <h3>Questions for Test: {selectedTestname}</h3>
         <ul>
           {questions.map((question) => (
-            <li key={question.id}>
-              <strong>Question Description:</strong> {question.quesdesc}
+            <li key={question.id} className="question-item"> {/* Apply a class name for each question */}
+              <strong className="question-desc">Question Description:</strong> {question.quesdesc}
               <br />
-              <strong>Options:</strong>
-              <ul>
+              <strong className="options-label">Options:</strong>
+              <ul className="options-list"> {/* Apply a class name for the options list */}
                 <li>{question.option1}</li>
                 <li>{question.option2}</li>
                 <li>{question.option3}</li>
                 <li>{question.option4}</li>
               </ul>
-              <strong>Correct Option:</strong> {question.correctoption}
+              <strong className="correct-option">Correct Option:</strong> {question.correctoption}
               <br />
-              <strong>Subject:</strong> {question.subject}
+              <strong className="subject-label">Subject:</strong> {question.subject}
               <br />
-              <strong>Class:</strong> {question.vclass}
+              <strong className="class-label">Class:</strong> {question.vclass}
             </li>
           ))}
         </ul>
