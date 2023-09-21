@@ -15,6 +15,7 @@ export default function NavTeacher() {
                 <a href="/lectureupload">Video Upload</a>
                 <a href="/notesupload">Text Material Upload</a>
                 <a href="materialupload">Exercise Upload</a>
+                <a href="/mcqupload">Upload A Test</a>
               </div>
             </li>
             <li>
@@ -25,6 +26,7 @@ export default function NavTeacher() {
               <div class="dropdown-content">
                 {/* <a href="#">View Submissions</a> */}
                 <a href="/profile">Profile</a>
+                <a href="/mcqview">View Existing Tests</a>
                 <a href="/logout">Logout</a>
               </div>
             </li>

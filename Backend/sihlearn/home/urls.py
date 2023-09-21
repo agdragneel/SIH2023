@@ -43,7 +43,9 @@ urlpatterns = [
     path("materialupload",views.materialupload,name='material upload'),
     path("notesupload",views.materialupload,name='notes upload'),
     path("lectureupload",views.materialupload,name='lecture upload'),
-    
-
-    
+    path('testquestions/', views.TestQuestionsAPIView.as_view(), name='testquestions-list'),
+    path('testquestions/<int:pk>/', views.TestQuestionsDetailAPIView.as_view(), name='testquestions-detail'),
+    path("mcqupload",views.materialupload,name='mcq upload'),
+    path("mcqanswer",views.materialupload,name='mcq answer'),
+    path("mcqview",views.materialupload,name='mcq view'),
 ]

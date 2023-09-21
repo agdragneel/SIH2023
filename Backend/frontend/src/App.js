@@ -14,7 +14,9 @@ import NavAnon from './components/NavAnon';
 import MaterialUpload from './components/MaterialUpload';
 import NotesUpload from './components/NotesUpload';
 import LectureUpload from './components/LectureUpload';
-
+import UploadQuestions from './components/UploadQuestions'
+import AnswerQuestions from './components/AnswerQuestions'
+import ViewTests from './components/ViewTests';
 function App() {
   const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -86,6 +88,9 @@ function App() {
           <Route path="/materialupload" element={<MaterialUpload/>}></Route>
           <Route path="/notesupload" element={<NotesUpload/>}></Route>
           <Route path="/lectureupload" element={<LectureUpload/>}></Route>
+          <Route path="/mcqupload" element={<UploadQuestions/>}></Route>
+          <Route path="/mcqanswer" element={<AnswerQuestions/>}></Route>
+          <Route path="/mcqview" element={<ViewTests/>}></Route>
           </Routes>
         </div>
 

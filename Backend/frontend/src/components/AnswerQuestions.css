@@ -1,0 +1,94 @@
+/* Styling for the QuestionList container */
+.QuestionList {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Styling for the test name dropdown */
+  .SelectTestName select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .SelectTestName select:hover {
+    border-color: #4CAF50;
+  }
+  
+  /* Styling for individual question containers */
+  .QuestionContainer {
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .QuestionContainer:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Styling for question text */
+  .QuestionText {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for answer options */
+  .AnswerOption {
+    margin: 10px 0;
+  }
+  
+  /* Styling for the submit button */
+  .SubmitButton {
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .SubmitButton:hover {
+    background-color: #45a049;
+  }
+  
+  /* Styling for correct and incorrect answers */
+  .CorrectAnswer {
+    background-color: #C8E6C9; /* Green background for correct answers */
+  }
+  
+  .IncorrectAnswer {
+    background-color: #FFCDD2; /* Red background for incorrect answers */
+    border: 2px solid #FF5733; /* Red border for incorrect questions */
+  }
+  
+  /* Styling for the results section */
+  .Results {
+    margin-top: 20px;
+  }
+  
+  /* Styling for the incorrect questions list */
+  .IncorrectQuestions {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Styling for individual incorrect question items */
+  .IncorrectQuestionItem {
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  

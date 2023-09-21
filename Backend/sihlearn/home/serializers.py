@@ -32,3 +32,8 @@ class StudExSerializer(serializers.ModelSerializer):
         class Meta:
             model=StudEx
             fields=('title','subject','vclass','desc','link')
+
+class TestQuestionsSerializer(serializers.ModelSerializer):
+        class Meta:
+            model=TestQuestions
+            fields='__all__'

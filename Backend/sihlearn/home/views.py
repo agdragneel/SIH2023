@@ -8,7 +8,7 @@ from home.models import Reg,Videos,Progress
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from home.serializers import *
-from rest_framework import status 
+from rest_framework import status,generics 
 
 User=get_user_model()
 class VideosView(APIView):
@@ -66,6 +66,15 @@ class StudExView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)   
+
+
+class TestQuestionsAPIView(generics.ListCreateAPIView):
+    queryset = TestQuestions.objects.all()
+    serializer_class = TestQuestionsSerializer
+
+class TestQuestionsDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = TestQuestions.objects.all()
+    serializer_class = TestQuestionsSerializer
 
 class StudMatView(APIView):
     def get(self,request):

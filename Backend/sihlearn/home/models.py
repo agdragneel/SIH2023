@@ -58,3 +58,17 @@ class Progress(models.Model):
     percent = models.PositiveIntegerField(default=0)
     def __str__(self):
         return self.key
+
+class TestQuestions(models.Model):
+    testname=models.CharField(max_length=255)
+    subject=models.CharField(max_length=100,default="")
+    vclass=models.CharField(max_length=100,default="")
+    quesdesc=models.TextField(default="")
+    option1=models.TextField(default="")
+    option2=models.TextField(default="")
+    option3=models.TextField(default="")
+    option4=models.TextField(default="")
+    correctoption=models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.testname+self.quesdesc
