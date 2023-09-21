@@ -72,3 +72,11 @@ class TestQuestions(models.Model):
 
     def __str__(self):
         return self.testname+self.quesdesc
+
+class Feedback(models.Model):
+        student = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+        text = models.TextField()
+        created_at = models.DateTimeField(auto_now_add=True)
+
+        def __str__(self):
+            return f"Feedback from {self.student.username}"

@@ -26,7 +26,10 @@ const QuestionList = () => {
   // Fetch questions by selected test name
   useEffect(() => {
     if (selectedTestname) {
-      axios.get(`http://localhost:8000/testquestions/?testname=${selectedTestname}`)
+      const testNameParts = selectedTestname.split(' ');
+      const testname = testNameParts[0];
+      
+      axios.get(`http://localhost:8000/testquestions/?testname=${testname}`)
         .then((response) => {
           setQuestions(response.data);
           // Clear previous responses, incorrect questions, and the submitted flag when changing the test name
@@ -37,6 +40,13 @@ const QuestionList = () => {
         .catch((error) => {
           console.error(error);
         });
+    } else {
+      // If no test name is selected, clear the questions
+      setQuestions([]);
+      // Also clear previous responses, incorrect questions, and the submitted flag
+      setResponses({});
+      setIncorrectQuestions([]);
+      setSubmitted(false);
     }
   }, [selectedTestname]);
 
@@ -173,7 +183,7 @@ const QuestionList = () => {
                 ))}
               </ul>
             </div>
-          )}
+               )}
         </div>
       )}
     </div>

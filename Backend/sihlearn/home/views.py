@@ -9,6 +9,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from home.serializers import *
 from rest_framework import status,generics 
+from rest_framework import permissions
 
 User=get_user_model()
 class VideosView(APIView):
@@ -183,3 +184,12 @@ def faq(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+class FeedbackView(generics.ListCreateAPIView):
+    queryset = Feedback.objects.all()
+    serializer_class = FeedbackSerializer
+    permission_classes = [permissions.IsAuthenticated]  # Requires authentication
+
+    def perform_create(self, serializer):
+        # Automatically set the student field to the currently logged-in user
+        serializer.save(student=self.request.user)

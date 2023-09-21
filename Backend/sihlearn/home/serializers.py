@@ -37,3 +37,7 @@ class TestQuestionsSerializer(serializers.ModelSerializer):
         class Meta:
             model=TestQuestions
             fields='__all__'
+class FeedbackSerializer(serializers.ModelSerializer):
+         class Meta:
+            model = Feedback
+            fields = ('id', 'student', 'text', 'created_at')

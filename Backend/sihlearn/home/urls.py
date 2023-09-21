@@ -48,4 +48,6 @@ urlpatterns = [
     path("mcqupload",views.materialupload,name='mcq upload'),
     path("mcqanswer",views.materialupload,name='mcq answer'),
     path("mcqview",views.materialupload,name='mcq view'),
+    path('feedback/', views.FeedbackView.as_view(), name='feedback-list-create'),
+    path("feedbackUpload",views.materialupload,name='feedback upload'),
 ]
