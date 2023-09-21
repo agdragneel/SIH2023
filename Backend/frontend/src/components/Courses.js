@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ClassCard from './ClassCard';
 import CourseList from './CourseList';
-
+import './courses.css';
 const classes = [
   {
     className: 'LKG',

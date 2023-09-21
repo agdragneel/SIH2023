@@ -33,9 +33,10 @@
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  position: relative; /* Add this line */
-  height: 800px; /* Adjust the height as needed */
+  height: 1000px; /* Set a fixed height for the video container */
+  overflow-y: auto; /* Add a scrollbar if the content exceeds the height */
 }
+
 
 .video-player {
   width: 100%;
@@ -50,10 +51,12 @@
 .react-player {
   border-radius: 5px;
   overflow: hidden;
-  position: absolute; /* Add this line */
-  top: 0; /* Add this line */
-  left: 0; /* Add this line */
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 300px; /* Adjust the minimum height as needed */
 }
+
 
 /* Center the video player */
 .video-react {
@@ -62,6 +65,12 @@
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+.comment-section {
+  flex-grow: 1; /* Allow the comment section to grow and fill available space */
+  overflow-y: auto; /* Add a scrollbar if comments exceed the available space */
+  overflow-x: hidden;
 }
 
 /* Style Comment List Items */

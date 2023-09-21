@@ -18,6 +18,7 @@ import UploadQuestions from './components/UploadQuestions'
 import AnswerQuestions from './components/AnswerQuestions'
 import ViewTests from './components/ViewTests';
 import Feedback from './components/Feedback';
+import{useTranslation} from "react-i18next";
 function App() {
   const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

@@ -1,54 +1,123 @@
+/* Common styles for larger screens */
 .hero {
-    text-align: center;
-    padding: 100px 0;
-    animation: fadeIn 1s ease-in-out;
+  text-align: center;
+  padding: 100px 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: white;
+  color: #333;
+}
+
+/* Style the footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Style the carousel container */
+.carousel-container-static {
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%; /* Set banner width to 100% */
+  max-width: 100%;
+  margin: 0; /* Remove margin to prevent horizontal scroll */
+  padding: 0; /* Remove padding to prevent horizontal scroll */
+  box-sizing: border-box; /* Add box-sizing for better width handling */
+}
+
+.static-image {
+  width: 100%; /* Set banner image width to 100% */
+  height: auto;
+}
+
+/* Style the carousel slides */
+.carousel-slide {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+/* Media query for iPhone XR and smaller screens */
+/* Common styles for larger screens */
+/* ... (previous styles) ... */
+
+/* Media query for iPhone XR and smaller screens */
+/* Media query for iPhone XR and smaller screens */
+@media (max-width: 415px) {
+  body {
+    margin: 0;
+    padding: 0;
   }
-  
+
+  .hero {
+    padding: 40px 0;
+  }
+
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 1rem;
     margin-bottom: 20px;
   }
-  
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
+
   .cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #333;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 8px 16px;
+    font-size: 0.8rem;
   }
-  
-  .cta-button:hover {
-    background-color: white;
-    color: #333;
+
+  /* Hide the company photos on smaller screens */
+  .company-photos {
+    display: none;
   }
-  
-  /* Style the footer */
-  footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-  }
-  
-  /* Style the carousel container */
+
+  /* Adjust banner width for smaller screens */
   .carousel-container-static {
     text-align: center;
     overflow: hidden;
     position: relative;
     max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  
-  /* Style the carousel slides */
-  .carousel-slide {
-    display: none;  
+
+  .static-image {
     width: 100%;
     height: auto;
   }
+
+  /* Adjust company info text width for smaller screens */
+  .company-info .company-text {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}

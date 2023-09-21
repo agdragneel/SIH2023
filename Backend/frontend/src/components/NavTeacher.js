@@ -1,5 +1,5 @@
 import React from "react";
-
+import './navTeacher.css';
 export default function NavTeacher() {
   return (
     <div>

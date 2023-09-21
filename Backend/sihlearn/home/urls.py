@@ -2,9 +2,9 @@ from django.contrib import admin
 from django.urls import path,include
 from home import views
 from home.views import *
-admin.site.site_header = "UMSRA Admin"
-admin.site.site_title = "UMSRA Admin Portal"
-admin.site.index_title = "Welcome to UMSRA Researcher Portal"
+admin.site.site_header = "RoamEd Admin"
+admin.site.site_title = "RoamEd Admin Portal"
+admin.site.index_title = "Welcome to RoamEd Administration Portal"
 urlpatterns = [
     path("lkg-science-course",views.courses,name='lkg-science'),
     path("lkg-english-course",views.courses,name='lkg-english'),
