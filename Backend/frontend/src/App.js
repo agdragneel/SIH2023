@@ -18,6 +18,8 @@ import UploadQuestions from './components/UploadQuestions'
 import AnswerQuestions from './components/AnswerQuestions'
 import ViewTests from './components/ViewTests';
 import Feedback from './components/Feedback';
+import StudentChat from './components/StudentChat';
+import TeacherChat from './components/TeacherChat';
 
 function App() {
   const [details, setDetails] = useState([]);
@@ -94,6 +96,8 @@ function App() {
           <Route path="/mcqanswer" element={<AnswerQuestions/>}></Route>
           <Route path="/mcqview" element={<ViewTests/>}></Route>
           <Route path="/feedbackUpload" element={<Feedback/>}></Route>
+          <Route path="/studentchat" element={<StudentChat/>}></Route>
+          <Route path="/teacherchat" element={<TeacherChat/>}></Route>
 
           </Routes>
         </div>

@@ -40,6 +40,7 @@ export default function NavStu() {
                 <a href="/profile">Profile</a>
                 <a href="/mcqanswer">Take a Test</a>
                 <a href="/feedbackUpload">Feedback</a>
+                <a href="/studentchat">Chat with Teachers</a>
                 <a href="/logout">Logout</a>
               </div>
             </li>

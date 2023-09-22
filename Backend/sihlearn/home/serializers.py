@@ -61,3 +61,8 @@ class BadgesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Badges
         fields = '__all__'
+
+class ChatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Chat
+        fields = '__all__'

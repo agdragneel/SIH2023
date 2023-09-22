@@ -54,7 +54,9 @@ urlpatterns = [
     path('completion/', views.CompleteView.as_view(), name='completion-list'),
     #path('badgesapi/', views.BadgesView.as_view(), name='badges'),
     path('badges/', BadgesListCreateView.as_view(), name='badges-list'),
-    
+    path('chat/', ChatListCreateView.as_view(), name='chat-list-create'),
+    path('studentchat/',views.materialupload,name='student chat'),
+    path('teacherchat/',views.materialupload,name='teacher chat'),
 
 
 ]

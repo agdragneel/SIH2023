@@ -120,3 +120,12 @@ class Badges(models.Model):
 
     def __str__(self):
         return f"Badge for {self.subject} in {self.vclass}"
+
+class Chat(models.Model):
+    teacher_username = models.CharField(max_length=100)
+    student_username = models.CharField(max_length=100)
+    message = models.TextField()
+    sentby=models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.teacher_username} - {self.student_username}"

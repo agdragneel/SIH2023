@@ -16,6 +16,7 @@ export default function NavTeacher() {
                 <a href="/notesupload">Text Material Upload</a>
                 <a href="materialupload">Exercise Upload</a>
                 <a href="/mcqupload">Upload A Test</a>
+                
               </div>
             </li>
             <li>
@@ -27,8 +28,12 @@ export default function NavTeacher() {
                 {/* <a href="#">View Submissions</a> */}
                 <a href="/profile">Profile</a>
                 <a href="/mcqview">View Existing Tests</a>
+                <a href="/teacherchat">Chat with Students</a>
                 <a href="/logout">Logout</a>
               </div>
+            </li>
+            <li>
+            <span className="teachergreeting">Hello, Teacher!</span>
             </li>
           </ul>
         </nav>
