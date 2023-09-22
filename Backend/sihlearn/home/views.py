@@ -215,3 +215,10 @@ class CompleteView(generics.ListCreateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class BadgesListCreateView(generics.ListCreateAPIView):
+    queryset = Badges.objects.all()
+    serializer_class = BadgesSerializer
+
+
+
+

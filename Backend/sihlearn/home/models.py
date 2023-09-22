@@ -103,3 +103,20 @@ class Complete(models.Model):
     def __str__(self):
         return f"{self.username}'s completion record for {self.course}"
 
+
+
+class Badges(models.Model):
+    # Default image links for badges
+    image_link_1 = models.CharField(max_length=255, default='default_link_1.jpg')
+    image_link_2 = models.CharField(max_length=255, default='default_link_2.jpg')
+    image_link_3 = models.CharField(max_length=255, default='default_link_3.jpg')
+    username= models.CharField(max_length=255,default='')
+    # Class and subject associated with the badge
+    vclass = models.CharField(max_length=255)
+    subject = models.CharField(max_length=255)
+    
+    # Badge description
+    description = models.TextField()
+
+    def __str__(self):
+        return f"Badge for {self.subject} in {self.vclass}"

@@ -74,4 +74,13 @@
   background-color: #005a9e;
 }
 
-  
+.badge-container {
+  text-align: center;
+  margin: 10px; /* Adjust the margin to your preference */
+}
+
+.badge-image {
+  width: 80px; /* Adjust the badge image size */
+  height: 80px; /* Adjust the badge image size */
+  margin-bottom: 10px;
+}

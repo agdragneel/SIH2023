@@ -52,6 +52,9 @@ urlpatterns = [
     path("feedbackUpload",views.materialupload,name='feedback upload'),
     path('comment/', views.CommentAPIView.as_view(), name='comment-list'),
     path('completion/', views.CompleteView.as_view(), name='completion-list'),
+    #path('badgesapi/', views.BadgesView.as_view(), name='badges'),
+    path('badges/', BadgesListCreateView.as_view(), name='badges-list'),
+    
 
 
 ]

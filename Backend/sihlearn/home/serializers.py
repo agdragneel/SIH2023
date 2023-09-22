@@ -56,3 +56,8 @@ class CompleteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Complete
         fields = '__all__'
+        
+class BadgesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Badges
+        fields = '__all__'
