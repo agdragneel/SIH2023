@@ -89,3 +89,9 @@ header {
       margin-left: auto; /* Push Admin Control to the right */
     }
   }
+
+  .authent {
+    margin-left: 1000px;
+    margin-right:auto;
+  }
+  

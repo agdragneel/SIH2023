@@ -143,10 +143,16 @@ function Profile() {
           )}
         </div>
       </div>
-      <div className="profile-badges">
-        <h2>Badges</h2>
-        {renderBadges()}
-      </div>
+      
+      {
+  currentUserDetails && currentUserDetails.position !== 'teacher' ? (
+    <div className="profile-badges">
+      <h2>Badges</h2>
+      {renderBadges()}
+    </div>
+  ) : null
+}
+
     </div>
   );
 }
