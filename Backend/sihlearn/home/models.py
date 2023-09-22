@@ -54,7 +54,10 @@ class StudEx(models.Model):
         return self.title
 
 class Progress(models.Model):
-    key = models.CharField(max_length=100)
+    key = models.CharField(max_length=100,default="")
+    username=models.CharField(max_length=100,default="")
+    vclass=models.CharField(max_length=100,default="")
+
     percent = models.PositiveIntegerField(default=0)
     def __str__(self):
         return self.key
@@ -83,8 +86,20 @@ class Feedback(models.Model):
 
 
 class Comment(models.Model):
-    username=models.CharField(max_length=100)
+    username=models.CharField(max_length=100,default="")
     video_title=models.CharField(max_length=100,default="")
     subject=models.CharField(max_length=100,default=" ")
     vclass=models.CharField(max_length=100,default=" ")
     content=models.TextField(default="")
+# models.py
+
+
+class Complete(models.Model):
+    username = models.CharField(max_length=255, default="default_username")  # Replace 'default_username' with your desired default value
+    course = models.CharField(max_length=255, default="")
+    class_name = models.CharField(max_length=255, default="")
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.username}'s completion record for {self.course}"
+

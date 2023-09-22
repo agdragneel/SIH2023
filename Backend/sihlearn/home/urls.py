@@ -17,7 +17,7 @@ urlpatterns = [
     path("iii-math-course",views.courses,name='iii-math'),
     path("iii-science-course",views.courses,name='iii-science'),
     path("iii-social-studies-course",views.courses,name='iii-social-studies'),
-    path("iii-history",views.courses,name='iii-history'),
+    path("iii-history-course",views.courses,name='iii-history'),
     path("",views.home,name='home'),
     path('rest/',RegView.as_view(),name="anything"),
     path("login",views.login_view,name='login_view'),
@@ -51,7 +51,7 @@ urlpatterns = [
     path('feedback/', views.FeedbackView.as_view(), name='feedback-list-create'),
     path("feedbackUpload",views.materialupload,name='feedback upload'),
     path('comment/', views.CommentAPIView.as_view(), name='comment-list'),
-
+    path('completion/', views.CompleteView.as_view(), name='completion-list'),
 
 
 ]

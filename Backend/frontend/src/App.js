@@ -18,7 +18,7 @@ import UploadQuestions from './components/UploadQuestions'
 import AnswerQuestions from './components/AnswerQuestions'
 import ViewTests from './components/ViewTests';
 import Feedback from './components/Feedback';
-import{useTranslation} from "react-i18next";
+
 function App() {
   const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -65,27 +65,27 @@ function App() {
           <Route path="/course" element={<Courses />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/check" element={<Home />} />
-          <Route path="/lkg-math-course" element={<CourseMaterial course="Math" class="LKG"/>}></Route>
-          <Route path="/lkg-science-course" element={<CourseMaterial course="Science" class="LKG"/>}></Route>
-          <Route path="/lkg-english-course" element={<CourseMaterial course="English" class="LKG"/>}></Route>
-          <Route path="/i-math-course" element={<CourseMaterial course="Math" class="I"/>}></Route>
-          <Route path="/i-science-course" element={<CourseMaterial course="Science" class="I"/>}></Route>
-          <Route path="/i-social-studies-course" element={<CourseMaterial course="Social Studies" class="I"/>}></Route>
-          <Route path="/ii-science-course" element={<CourseMaterial course="Science" class="II"/>}></Route>
-          <Route path="/ii-math-course" element={<CourseMaterial course="Math" class="II"/>}></Route>
-          <Route path="/ii-social-studies-course" element={<CourseMaterial course="Social Studies" class="II"/>}></Route>
-          <Route path="/iii-science-course" element={<CourseMaterial course="Science" class="III"/>}></Route>
-          <Route path="/iii-math-course" element={<CourseMaterial course="Math" class="III"/>}></Route>
-          <Route path="/iii-social-studies-course" element={<CourseMaterial course="Social Studies" class="III"/>}></Route>
-          <Route path="/iii-history-course" element={<CourseMaterial course="History" class="III"/>}></Route>
-          <Route path="/iv-science-course" element={<CourseMaterial course="Science" class="I"/>}></Route>
-          <Route path="/iv-math-course" element={<CourseMaterial course="Math" class="I"/>}></Route>
-          <Route path="/iv-social-studies-course" element={<CourseMaterial course="Social Studies" class="I"/>}></Route>
-          <Route path="/iv-history-course" element={<CourseMaterial course="History" class="I"/>}></Route>
-          <Route path="/v-science-course" element={<CourseMaterial course="Science" class="V"/>}></Route>
-          <Route path="/v-math-course" element={<CourseMaterial course="Math" class="V"/>}></Route>
-          <Route path="/v-social-studies-course" element={<CourseMaterial course="Social Studies" class="V"/>}></Route>
-          <Route path="/v-history-course" element={<CourseMaterial course="History" class="V"/>}></Route>
+          <Route path="/lkg-math-course" element={<CourseMaterial course="Math" class="LKG" subjectcount="3"/>}></Route>
+          <Route path="/lkg-science-course" element={<CourseMaterial course="Science" class="LKG" subjectcount="3"/>}></Route>
+          <Route path="/lkg-english-course" element={<CourseMaterial course="English" class="LKG" subjectcount="3"/>}></Route>
+          <Route path="/i-math-course" element={<CourseMaterial course="Math" class="I" subjectcount="3"/>}></Route>
+          <Route path="/i-science-course" element={<CourseMaterial course="Science" class="I" subjectcount="3"/>}></Route>
+          <Route path="/i-social-studies-course" element={<CourseMaterial course="Social Studies" class="I" subjectcount="3"/>}></Route>
+          <Route path="/ii-science-course" element={<CourseMaterial course="Science" class="II" subjectcount="3"/>}></Route>
+          <Route path="/ii-math-course" element={<CourseMaterial course="Math" class="II" subjectcount="3"/>}></Route>
+          <Route path="/ii-social-studies-course" element={<CourseMaterial course="Social Studies" class="II" subjectcount="3"/>}></Route>
+          <Route path="/iii-science-course" element={<CourseMaterial course="Science" class="III" subjectcount="4"/>}></Route>
+          <Route path="/iii-math-course" element={<CourseMaterial course="Math" class="III" subjectcount="4"/>}></Route>
+          <Route path="/iii-social-studies-course" element={<CourseMaterial course="Social Studies" class="III" subjectcount="3"/>}></Route>
+          <Route path="/iii-history-course" element={<CourseMaterial course="History" class="III" subjectcount="4"/>}></Route>
+          <Route path="/iv-science-course" element={<CourseMaterial course="Science" class="I" subjectcount="4"/>}></Route>
+          <Route path="/iv-math-course" element={<CourseMaterial course="Math" class="I" subjectcount="4"/>}></Route>
+          <Route path="/iv-social-studies-course" element={<CourseMaterial course="Social Studies" class="I" subjectcount="4"/>}></Route>
+          <Route path="/iv-history-course" element={<CourseMaterial course="History" class="I" subjectcount="4"/>}></Route>
+          <Route path="/v-science-course" element={<CourseMaterial course="Science" class="V" subjectcount="4"/>}></Route>
+          <Route path="/v-math-course" element={<CourseMaterial course="Math" class="V" subjectcount="4"/>}></Route>
+          <Route path="/v-social-studies-course" element={<CourseMaterial course="Social Studies" class="V" subjectcount="4"/>}></Route>
+          <Route path="/v-history-course" element={<CourseMaterial course="History" class="V" subjectcount="4"/>}></Route>
           <Route path="/profile" element={<Profile/>}></Route>
           <Route path="/materialupload" element={<MaterialUpload/>}></Route>
           <Route path="/notesupload" element={<NotesUpload/>}></Route>

@@ -1,5 +1,5 @@
 header {
-    background-color: #333;
+    background-color: rgb(2,48,71);
     color: white;
     padding: 10px 0;
   }
@@ -41,7 +41,7 @@ header {
   
   
   nav a:hover {
-    color: #EBB02C; /* Change to your desired hover color */
+    color: rgb(251,133,0); /* Change to your desired hover color */
   }
 
   .nav ul li.dropdown:hover .dropdown-content {
@@ -65,7 +65,7 @@ header {
   }
   
   .nav ul li.dropdown .dropdown-content a:hover {
-    background-color: #EBB02C; /* Change to your desired hover color */
+    background-color:rgb(251,133,0); /* Change to your desired hover color */
     color: black;
   }
 

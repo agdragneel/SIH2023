@@ -1,3 +1,5 @@
+
+
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,logout,login
@@ -26,7 +28,7 @@ class VideosView(APIView):
             
 class ProgressView(APIView):
     def get(self,request):
-        output=[{"key":output.key,"percent":output.percent}
+        output=[{"key":output.key,"username":output.username,"vclass":output.vclass,"percent":output.percent,}
         for output in Progress.objects.all()]
         return Response(output)
 
@@ -39,6 +41,8 @@ class ProgressView(APIView):
         # Get the 'key' and 'percent' data from the request
         key = request.data.get('key')
         percent = request.data.get('percent')
+        vclass=request.data.get('vclass')
+        username=request.data.get('username')
 
         # Check if 'key' and 'percent' are provided in the request
         if not key or percent is None:
@@ -198,5 +202,16 @@ class FeedbackView(generics.ListCreateAPIView):
 class CommentAPIView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+
+class CompleteView(generics.ListCreateAPIView):
+    queryset = Complete.objects.all()
+    serializer_class = CompleteSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

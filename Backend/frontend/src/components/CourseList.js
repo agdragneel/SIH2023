@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Progressbar from './progress';
 function CourseList({ subjects, descriptions, selectedClass }) {
   const [expandedCourses, setExpandedCourses] = useState([]);
 
@@ -71,7 +71,13 @@ function CourseList({ subjects, descriptions, selectedClass }) {
           </div>
         </div>
       ))}
+
+      <div className="progresscontainerx">
+      <h1>Current Progress in this Class:</h1>
+        <Progressbar class={selectedClass}/>
+      </div>
     </div>
+
   );
 }
 

@@ -1,70 +1,79 @@
-import React, { useState, useEffect } from 'react';
-import './progress.css';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import "./progress.css";
+import axios from "axios";
+
 const csrfToken = document.cookie
-  .split(';')
-  .find(cookie => cookie.trim().startsWith('csrftoken='))
-  .split('=')[1];
+  .split(";")
+  .find((cookie) => cookie.trim().startsWith("csrftoken="))
+  .split("=")[1];
 
 export default function Progressbar(props) {
-    const [progress, setProgress] = useState(0);
-    const ident = props.class.toLowerCase() + '-' + props.course.toLowerCase();
+  const [progress, setProgress] = useState(0);
+  const [usna, setUsna] = useState('');
 
-    const increaseProgress = () => {
-        if (progress < 100) {
-            setProgress(progress + 10);
+  const showColor = () => {
+    if (progress < 40) return "#ff0000";
+    else if (progress < 70) return "#ffa500";
+    else return "#2eccf1";
+  };
 
-            // Update user progress data on the backend
-            axios.put('http://127.0.0.1:8000/progressapi/', { key: ident, percent: progress + 10 }, {
-    headers: {
-      'X-CSRFToken': csrfToken,
-    },
-  })
-  .then(response => {
-    console.log('Progress updated successfully:', response.data);
-  })
-  .catch(error => {
-    console.error('Error updating user progress:', error);
-    console.error('Error response data:', error.response.data); // Log the response data for debugging
-    console.error('Error status:', error.response.status); // Log the response status code for debugging
-  });
+  useEffect(() => {
+    // Fetch user progress data from Django backend
+    axios
+      .get("/currentuser/") // Replace with the actual API endpoint
+      .then((response) => {
+        console.log("Username Fetched:", response.data.username);
+        setUsna(response.data.username);
+      })
+      .catch((error) => {
+        console.error("Error fetching current user:", error);
+      });
+  }, []); // This useEffect runs only once to fetch the username
 
+  useEffect(() => {
+    // Fetch progress data using the obtained username and class
+    if (usna === '') {
+      // Wait until usna is set before making the request
+      return;
+    }
+
+    axios
+      .get(`http://127.0.0.1:8000/progressapi/`)
+      .then((response) => {
+        console.log(response.data);
+        console.log("Username:", usna);
+        console.log("Class:", props.class.toLowerCase());
+
+        // Find the entry that matches props.course and props.subject
+        const filteredProgress = response.data.find((progress) => (
+          progress.vclass === props.class.toLowerCase() && progress.username === usna
+        ));
+
+        console.log("Filtered Data:", filteredProgress);
+
+        if (filteredProgress) {
+          console.log("Filtered Data Progress:", filteredProgress.percent);
+          setProgress(filteredProgress.percent);
+          console.log("Progress value:", progress);
         }
-    };
+      })
+      .catch((error) => {
+        console.error("Error fetching user progress:", error);
+      });
+  }, [usna, props.class]);
 
-    const showColor = () => {
-        if (progress < 40) return '#ff0000';
-        else if (progress < 70) return '#ffa500';
-        else return '#2eccf1';
-    };
-
-    useEffect(() => {
-        // Fetch user progress data from Django backend
-        axios.get(`http://127.0.0.1:8000/progressapi/`)
-            .then(response => {
-                // Find the entry that matches props.course and props.subject
-                const matchingProgress = response.data.find(item => item.key === ident);
-                console.log(matchingProgress.percent);
-                if (matchingProgress) {
-                    setProgress(matchingProgress.percent);
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching user progress:', error);
-            });
-    }, [props.course, props.subject]);
-
-    return (
-        <div>
-            <div className="Progresscontainer">
-                <div className="progress-bar">
-                    <div className="progressBar-fill" style={{ width: `${progress}%`, backgroundColor: showColor() }}>
-                        {progress}%
-                    </div>
-                </div>
-                <div className="progress-label">{progress}%</div>
-                <button onClick={increaseProgress}>Submit Assignment</button>
-            </div>
+  return (
+    <div>
+      <div className="Progresscontainer">
+        <div className="progress-bar">
+          <div
+            className="progressBar-fill"
+            style={{ width: `${progress}%`, backgroundColor: showColor() }}
+          >
+          </div>
         </div>
-    );
+        <div className="progress-label">{progress}%</div>
+      </div>
+    </div>
+  );
 }

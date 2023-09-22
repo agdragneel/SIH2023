@@ -87,9 +87,7 @@
     margin-left: auto; /* Align expand button to the right */
   }
   
-  .expand-button:hover {
-    color: white; /* Change color on hover */
-  }
+  
   
   /* Display expanded course details with less opaque background */
   .course-details {
@@ -148,4 +146,17 @@
   }
 
   /* Add any additional styles or adjustments for smaller screens here */
+}
+
+.progresscontainerx {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-align: center; /* Center text horizontally */
+  height: 100%; /* Ensure the container takes the full height of its parent */
+}
+
+.progresscontainerx h1 {
+  margin-bottom: 20px; /* Add space below the heading */
 }
